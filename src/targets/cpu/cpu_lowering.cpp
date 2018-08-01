@@ -249,29 +249,24 @@ struct cpu_gemm
             if(!transa && !transb)
             {
                 auto k = amat.get_shape().lens()[1];
-                // for(int ii = 0; ii < m; ii++)
-                // {
-                //     for(int kk = 0; kk < k; kk++)
-                //     {
-                //         auto aik  = a[ii * k + kk];
-                //         auto* bkj = &b[kk * n];
-                //         auto* cij = &c[ii * n];
-                //         for(int jj = 0; jj < n; jj++, cij++, bkj++)
-                //         {
-                //             *cij = alpha * aik * (*bkj) + beta * (*cij);
-                //         }
-                //     }
-                // }
                 for(int ii = 0; ii < m; ii++)
                 {
                     for(int jj = 0; jj < n; jj++)
                     {
-                        auto s = beta * c[ii * n + jj];
-                        for(int kk = 0; kk < k; kk++)
+                        c[ii * n + jj] *= beta;
+                    }
+                }
+                for(int ii = 0; ii < m; ii++)
+                {
+                    for(int kk = 0; kk < k; kk++)
+                    {
+                        auto aik  = alpha * a[ii * k + kk];
+                        auto* bkj = &b[kk * n];
+                        auto* cij = &c[ii * n];
+                        for(int jj = 0; jj < n; jj++, cij++, bkj++)
                         {
-                            s += a[ii * k + kk] * b[kk * n + jj];
+                            *cij += aik * (*bkj);
                         }
-                        c[ii * n + jj] = alpha * s;
                     }
                 }
             }
