@@ -237,8 +237,8 @@ struct cpu_gemm
         argument result{output_shape};
         auto alpha  = op.alpha;
         auto beta   = op.beta;
-        auto transA = op.transA;
-        auto transB = op.transB;
+        auto transa = op.transa;
+        auto transb = op.transb;
         visit_all(result, args[0], args[1])([&](auto cmat, auto amat, auto bmat) {
             auto m = result.get_shape().lens()[0];
             auto n = result.get_shape().lens()[1];
@@ -246,7 +246,7 @@ struct cpu_gemm
             auto a = amat.data();
             auto b = bmat.data();
             auto c = cmat.data();
-            if(!transA && !transB)
+            if(!transa && !transb)
             {
                 auto k = amat.get_shape().lens()[1];
                 // for(int ii = 0; ii < m; ii++)
@@ -275,7 +275,7 @@ struct cpu_gemm
                     }
                 }
             }
-            else if(!transA && transB)
+            else if(!transa && transb)
             {
                 auto k = amat.get_shape().lens()[1];
                 for(int ii = 0; ii < m; ii++)
@@ -291,7 +291,7 @@ struct cpu_gemm
                     }
                 }
             }
-            else if(transA && !transB)
+            else if(transa && !transb)
             {
                 auto k = amat.get_shape().lens()[0];
                 for(int ii = 0; ii < m; ii++)

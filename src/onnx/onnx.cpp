@@ -173,8 +173,8 @@ struct onnx_parser
     {
         float alpha = 1.0f;
         float beta  = 0.0f;
-        bool transA = false;
-        bool transB = false;
+        bool transa = false;
+        bool transb = false;
         if(contains(attributes, "alpha"))
         {
             alpha = parse_value(attributes.at("alpha")).at<float>();
@@ -185,20 +185,20 @@ struct onnx_parser
         }
         if(contains(attributes, "transA"))
         {
-            transA = parse_value(attributes.at("transA")).at<bool>();
+            transa = parse_value(attributes.at("transA")).at<bool>();
         }
         if(contains(attributes, "transB"))
         {
-            transB = parse_value(attributes.at("transB")).at<bool>();
+            transb = parse_value(attributes.at("transB")).at<bool>();
         }
         if(args.size() == 3)
         {
             uint64_t axis = 1;
-            auto l1 = prog.add_instruction(gemm{alpha, beta, transA, transB}, args[0], args[1]);
+            auto l1 = prog.add_instruction(gemm{alpha, beta, transa, transb}, args[0], args[1]);
             auto l2 = prog.add_instruction(broadcast{axis}, l1, args[2]);
             return prog.add_instruction(add{}, l1, l2);
         }
-        return prog.add_instruction(gemm{alpha, beta, transA, transB}, args);
+        return prog.add_instruction(gemm{alpha, beta, transa, transb}, args);
     }
 
     void parse_from(std::istream& is)
