@@ -62,6 +62,7 @@ struct onnx_parser
         add_mem_op("Conv", &onnx_parser::parse_conv);
         add_mem_op("MaxPool", &onnx_parser::parse_pooling);
         add_mem_op("Reshape", &onnx_parser::parse_reshape);
+        add_mem_op("Gemm", &onnx_parser::parse_gemm);
     }
 
     template <class F>
@@ -165,6 +166,39 @@ struct onnx_parser
     {
         literal v = parse_value(attributes.at("value"));
         return prog.add_literal(v);
+    }
+
+    instruction_ref
+    parse_gemm(std::string, attribute_map attributes, std::vector<instruction_ref> args)
+    {
+        float alpha = 1.0f;
+        float beta  = 0.0f;
+        bool transA = false;
+        bool transB = false;
+        if(contains(attributes, "alpha"))
+        {
+            alpha = parse_value(attributes.at("alpha")).at<float>();
+        }
+        if(contains(attributes, "beta"))
+        {
+            alpha = parse_value(attributes.at("beta")).at<float>();
+        }
+        if(contains(attributes, "transA"))
+        {
+            transA = parse_value(attributes.at("transA")).at<bool>();
+        }
+        if(contains(attributes, "transB"))
+        {
+            transB = parse_value(attributes.at("transB")).at<bool>();
+        }
+        if(args.size() == 3)
+        {
+            uint64_t axis = 1;
+            auto l1 = prog.add_instruction(gemm{alpha, beta, transA, transB}, args[0], args[1]);
+            auto l2 = prog.add_instruction(broadcast{axis}, l1, args[2]);
+            return prog.add_instruction(add{}, l1, l2);
+        }
+        return prog.add_instruction(gemm{alpha, beta, transA, transB}, args);
     }
 
     void parse_from(std::istream& is)

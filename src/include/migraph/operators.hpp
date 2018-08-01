@@ -387,6 +387,10 @@ struct reshape
 
 struct gemm
 {
+    float alpha = 1.0f;
+    float beta  = 0.0f;
+    bool transA = false;
+    bool transB = false;
     std::string name() const { return "gemm"; }
     shape compute_shape(std::vector<shape> inputs) const
     {
@@ -395,9 +399,32 @@ struct gemm
         const shape& b = inputs.at(1);
         auto t         = a.type();
 
-        if(a.lens()[1] != b.lens()[0])
-            MIGRAPH_THROW("Inner dimensions do not match");
-        return {t, {a.lens()[0], b.lens()[1]}};
+        shape c{};
+        if(transA == false && transB == false)
+        {
+            if(a.lens()[1] != b.lens()[0])
+                MIGRAPH_THROW("Inner dimensions do not match");
+            c = {t, {a.lens()[0], b.lens()[1]}};
+        }
+        if(transA == false && transB == true)
+        {
+            if(a.lens()[1] != b.lens()[1])
+                MIGRAPH_THROW("Inner dimensions do not match");
+            c = {t, {a.lens()[0], b.lens()[0]}};
+        }
+        if(transA == true && transB == false)
+        {
+            if(a.lens()[0] != b.lens()[0])
+                MIGRAPH_THROW("Inner dimensions do not match");
+            c = {t, {a.lens()[1], b.lens()[1]}};
+        }
+        if(transA == true && transB == true)
+        {
+            if(a.lens()[0] != b.lens()[1])
+                MIGRAPH_THROW("Inner dimensions do not match");
+            c = {t, {a.lens()[1], b.lens()[0]}};
+        }
+        return c;
     }
 
     argument compute(context&, shape, std::vector<argument>) const

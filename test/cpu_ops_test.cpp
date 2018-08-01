@@ -244,7 +244,6 @@ void reshape_test()
 
 void gemm_test()
 {
-    migraph::program p;
     std::vector<float> a = {-0.00925222, 0.56250403, 0.70107397,  0.75402161,  -0.505885,
                             1.33628943,  -0.11413,   -0.31270559, 1.59336732,  -0.19361027,
                             -0.91620867, 0.40108416, -0.06969921, 0.68483471,  -0.39906632,
@@ -264,31 +263,125 @@ void gemm_test()
                             1.53027987e+00,
                             -3.81407415e-04,
                             -3.29650255e-01};
-    std::vector<float> c = {-1.56327541e+00,
-                            -7.09570140e-01,
-                            -5.37424982e-01,
-                            -2.22994831e-01,
-                            -2.15586437e+00,
-                            2.09177941e-03,
-                            -1.47279677e+00,
-                            2.02627040e-01,
-                            -6.04527691e-01,
-                            -1.29885596e+00,
-                            2.16294914e+00,
-                            -1.48101497e-01};
-    migraph::shape a_shape{migraph::shape::float_type, {4, 5}};
-    auto al = p.add_literal(migraph::literal{a_shape, a});
-    migraph::shape b_shape{migraph::shape::float_type, {5, 3}};
-    auto bl = p.add_literal(migraph::literal{b_shape, b});
-    p.add_instruction(migraph::gemm{}, al, bl);
-    p.compile(migraph::cpu::cpu_target{});
-    auto result = p.eval({});
-    std::vector<float> results_vector(12);
-    result.visit([&](auto output) { results_vector.assign(output.begin(), output.end()); });
-    float tol = 1e-6;
-    for(int i = 0; i < results_vector.size(); i++)
+    // NN
     {
-        EXPECT(std::abs(results_vector[i] - c[i]) < tol);
+        std::vector<float> c = {-1.56327541e+00,
+                                -7.09570140e-01,
+                                -5.37424982e-01,
+                                -2.22994831e-01,
+                                -2.15586437e+00,
+                                2.09177941e-03,
+                                -1.47279677e+00,
+                                2.02627040e-01,
+                                -6.04527691e-01,
+                                -1.29885596e+00,
+                                2.16294914e+00,
+                                -1.48101497e-01};
+        migraph::program p;
+        migraph::shape a_shape{migraph::shape::float_type, {4, 5}};
+        migraph::shape b_shape{migraph::shape::float_type, {5, 3}};
+        auto al = p.add_literal(migraph::literal{a_shape, a});
+        auto bl = p.add_literal(migraph::literal{b_shape, b});
+        p.add_instruction(migraph::gemm{}, al, bl);
+        p.compile(migraph::cpu::cpu_target{});
+        auto result = p.eval({});
+        std::vector<float> results_vector(12);
+        result.visit([&](auto output) { results_vector.assign(output.begin(), output.end()); });
+        float tol = 1e-6;
+        for(int i = 0; i < results_vector.size(); i++)
+        {
+            EXPECT(std::abs(results_vector[i] - c[i]) < tol);
+        }
+    }
+    // NT
+    {
+        std::vector<float> c = {-0.28500289,
+                                -0.60820148,
+                                1.00851644,
+                                0.85093479,
+                                -0.54693915,
+                                -1.56869325,
+                                -0.97044707,
+                                0.12430357,
+                                0.6781955,
+                                -2.37512276,
+                                1.2701225,
+                                -0.54703633};
+        migraph::program p;
+        migraph::shape a_shape{migraph::shape::float_type, {4, 5}};
+        migraph::shape b_shape{migraph::shape::float_type, {3, 5}};
+        auto al = p.add_literal(migraph::literal{a_shape, a});
+        auto bl = p.add_literal(migraph::literal{b_shape, b});
+        p.add_instruction(migraph::gemm{1.0f, 0.0f, false, true}, al, bl);
+        p.compile(migraph::cpu::cpu_target{});
+        auto result = p.eval({});
+        std::vector<float> results_vector(12);
+        result.visit([&](auto output) { results_vector.assign(output.begin(), output.end()); });
+        float tol = 1e-6;
+        for(int i = 0; i < results_vector.size(); i++)
+        {
+            EXPECT(std::abs(results_vector[i] - c[i]) < tol);
+        }
+    }
+    // TN
+    {
+        std::vector<float> c = {0.08103308,
+                                -1.01355749,
+                                -0.49229794,
+                                -1.78781014,
+                                -0.1151139,
+                                -0.0256696,
+                                1.01611274,
+                                0.32658809,
+                                0.76131256,
+                                -0.07680248,
+                                0.66096994,
+                                1.23196651};
+        migraph::program p;
+        migraph::shape a_shape{migraph::shape::float_type, {5, 4}};
+        migraph::shape b_shape{migraph::shape::float_type, {5, 3}};
+        auto al = p.add_literal(migraph::literal{a_shape, a});
+        auto bl = p.add_literal(migraph::literal{b_shape, b});
+        p.add_instruction(migraph::gemm{1.0f, 0.0f, true, false}, al, bl);
+        p.compile(migraph::cpu::cpu_target{});
+        auto result = p.eval({});
+        std::vector<float> results_vector(12);
+        result.visit([&](auto output) { results_vector.assign(output.begin(), output.end()); });
+        float tol = 1e-6;
+        for(int i = 0; i < results_vector.size(); i++)
+        {
+            EXPECT(std::abs(results_vector[i] - c[i]) < tol);
+        }
+    }
+    // TT
+    {
+        std::vector<float> c = {1.26490865,
+                                -0.8707044,
+                                2.43410874,
+                                -1.1972181,
+                                -0.32065833,
+                                -0.93707533,
+                                0.05059333,
+                                0.48048166,
+                                -1.94676043,
+                                0.15601288,
+                                0.6720962,
+                                0.33086335};
+        migraph::program p;
+        migraph::shape a_shape{migraph::shape::float_type, {5, 4}};
+        migraph::shape b_shape{migraph::shape::float_type, {3, 5}};
+        auto al = p.add_literal(migraph::literal{a_shape, a});
+        auto bl = p.add_literal(migraph::literal{b_shape, b});
+        p.add_instruction(migraph::gemm{1.0f, 0.0f, true, true}, al, bl);
+        p.compile(migraph::cpu::cpu_target{});
+        auto result = p.eval({});
+        std::vector<float> results_vector(12);
+        result.visit([&](auto output) { results_vector.assign(output.begin(), output.end()); });
+        float tol = 1e-6;
+        for(int i = 0; i < results_vector.size(); i++)
+        {
+            EXPECT(std::abs(results_vector[i] - c[i]) < tol);
+        }
     }
 }
 

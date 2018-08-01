@@ -235,31 +235,91 @@ struct cpu_gemm
     argument compute(context&, shape output_shape, std::vector<argument> args) const
     {
         argument result{output_shape};
+        auto alpha  = op.alpha;
+        auto beta   = op.beta;
+        auto transA = op.transA;
+        auto transB = op.transB;
         visit_all(result, args[0], args[1])([&](auto cmat, auto amat, auto bmat) {
-            auto m = amat.get_shape().lens()[0];
-            auto n = bmat.get_shape().lens()[1];
-            auto k = bmat.get_shape().lens()[0];
+            auto m = result.get_shape().lens()[0];
+            auto n = result.get_shape().lens()[1];
 
             auto a = amat.data();
             auto b = bmat.data();
             auto c = cmat.data();
-            for(int ii = 0; ii < m; ii++)
+            if(!transA && !transB)
             {
-                for(int jj = 0; jj < n; jj++)
+                auto k = amat.get_shape().lens()[1];
+                // for(int ii = 0; ii < m; ii++)
+                // {
+                //     for(int kk = 0; kk < k; kk++)
+                //     {
+                //         auto aik  = a[ii * k + kk];
+                //         auto* bkj = &b[kk * n];
+                //         auto* cij = &c[ii * n];
+                //         for(int jj = 0; jj < n; jj++, cij++, bkj++)
+                //         {
+                //             *cij = alpha * aik * (*bkj) + beta * (*cij);
+                //         }
+                //     }
+                // }
+                for(int ii = 0; ii < m; ii++)
                 {
-                    c[ii * n + jj] = 0;
+                    for(int jj = 0; jj < n; jj++)
+                    {
+                        auto s = beta * c[ii * n + jj];
+                        for(int kk = 0; kk < k; kk++)
+                        {
+                            s += a[ii * k + kk] * b[kk * n + jj];
+                        }
+                        c[ii * n + jj] = alpha * s;
+                    }
                 }
             }
-            for(int ii = 0; ii < m; ii++)
+            else if(!transA && transB)
             {
-                for(int kk = 0; kk < k; kk++)
+                auto k = amat.get_shape().lens()[1];
+                for(int ii = 0; ii < m; ii++)
                 {
-                    auto aik  = a[ii * k + kk];
-                    auto* bkj = &b[kk * n];
-                    auto* cij = &c[ii * n];
-                    for(int jj = 0; jj < n; jj++, cij++, bkj++)
+                    for(int jj = 0; jj < n; jj++)
                     {
-                        *cij += aik * (*bkj);
+                        auto s = beta * c[ii * n + jj];
+                        for(int kk = 0; kk < k; kk++)
+                        {
+                            s += a[ii * k + kk] * b[jj * k + kk];
+                        }
+                        c[ii * n + jj] = alpha * s;
+                    }
+                }
+            }
+            else if(transA && !transB)
+            {
+                auto k = amat.get_shape().lens()[0];
+                for(int ii = 0; ii < m; ii++)
+                {
+                    for(int jj = 0; jj < n; jj++)
+                    {
+                        auto s = beta * c[ii * n + jj];
+                        for(int kk = 0; kk < k; kk++)
+                        {
+                            s += a[kk * m + ii] * b[kk * n + jj];
+                        }
+                        c[ii * n + jj] = alpha * s;
+                    }
+                }
+            }
+            else
+            {
+                auto k = amat.get_shape().lens()[0];
+                for(int ii = 0; ii < m; ii++)
+                {
+                    for(int jj = 0; jj < n; jj++)
+                    {
+                        auto s = beta * c[ii * n + jj];
+                        for(int kk = 0; kk < k; kk++)
+                        {
+                            s += a[kk * m + ii] * b[jj * k + kk];
+                        }
+                        c[ii * n + jj] = alpha * s;
                     }
                 }
             }
