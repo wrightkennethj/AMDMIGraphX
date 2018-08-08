@@ -7,7 +7,8 @@ find_package(Threads REQUIRED)
 include(ProcessorCount)
 ProcessorCount(N)
 set(CTEST_PARALLEL_LEVEL ${N} CACHE STRING "CTest parallel level")
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure -j ${CTEST_PARALLEL_LEVEL} -C ${CMAKE_CFG_INTDIR})
+add_custom_target(check COMMAND ${
+    CMAKE_CTEST_COMMAND} --output-on-failure -j ${CTEST_PARALLEL_LEVEL} -C ${CMAKE_CFG_INTDIR})
 add_custom_target(tests)
 
 find_program(MIGRAPH_GDB gdb)
@@ -31,26 +32,27 @@ function(add_test_command NAME EXE)
         endforeach()
         file(GENERATE OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/test_${NAME}.cmd"
             CONTENT "set PATH=${WINPATH};%PATH%
-                    %1 ${ARGN}")
+                    %1 ${
+    ARGN}")
         add_test(NAME ${NAME} COMMAND ${WINE_CMD} cmd /c "${CMAKE_CURRENT_BINARY_DIR}/test_${NAME}.cmd" $<TARGET_FILE:${EXE}>)
     else()
         if(MIGRAPH_TEST_GDB)
-            # add_test(NAME ${NAME} COMMAND ${MIGRAPH_GDB} 
-            #     --batch
-            #     --return-child-result
-            #     -ex "set disable-randomization off"
-            #     -ex run
-            #     -ex backtrace
-            #     --args $<TARGET_FILE:${EXE}> ${ARGN})
+#add_test(NAME ${NAME} COMMAND ${MIGRAPH_GDB}
+#-- batch
+#-- return - child - result
+#- ex "set disable-randomization off"
+#- ex run
+#- ex backtrace
+#-- args $ <TARGET_FILE : ${EXE }> ${ARGN })
             set(TEST_DIR ${CMAKE_CURRENT_BINARY_DIR}/gdb/test_${NAME})
             file(MAKE_DIRECTORY ${TEST_DIR})
             file(GENERATE OUTPUT "${TEST_DIR}/run.cmake"
                 CONTENT "
-                # Remove previous core dump
+#Remove previous core dump
                 file(REMOVE ${TEST_DIR}/core)
                 execute_process(COMMAND $<TARGET_FILE:${EXE}> ${ARGN} WORKING_DIRECTORY ${TEST_DIR} RESULT_VARIABLE RESULT)
                 if(NOT RESULT EQUAL 0)
-                    # TODO: check for core files based on pid when setting /proc/sys/kernel/core_uses_pid
+#TODO : check for core files based on pid when setting / proc / sys / kernel / core_uses_pid
                     if(EXISTS ${TEST_DIR}/core)
                         set(\$ENV{UBSAN_OPTIONS} print_stacktrace=1)
                         set(\$ENV{ASAN_OPTIONS} print_stacktrace=1)
@@ -70,13 +72,14 @@ function(add_test_executable TEST_NAME)
     add_executable (${TEST_NAME} EXCLUDE_FROM_ALL ${ARGN})
     rocm_clang_tidy_check(${TEST_NAME})
     target_link_libraries(${TEST_NAME} ${CMAKE_THREAD_LIBS_INIT})
-    # Cmake does not add flags correctly for gcc
+#Cmake does not add flags correctly for gcc
     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU") 
         set_target_properties(${TEST_NAME} PROPERTIES COMPILE_FLAGS -pthread LINK_FLAGS -pthread)
     endif()
     separate_arguments(MIOPEN_TEST_FLAGS_ARGS UNIX_COMMAND ${MIOPEN_TEST_FLAGS})
     if(MIOPEN_TEST_ALL)
-        set(TEST_COMMAND ${TEST_NAME} ${MIOPEN_TEST_FLOAT_ARG} --all ${MIOPEN_TEST_FLAGS_ARGS})
+        set(TEST_COMMAND ${TEST_NAME} ${
+    MIOPEN_TEST_FLOAT_ARG} --all ${MIOPEN_TEST_FLAGS_ARGS})
     else()
         set(TEST_COMMAND ${TEST_NAME} ${MIOPEN_TEST_FLOAT_ARG} ${MIOPEN_TEST_FLAGS_ARGS})
     endif()
@@ -96,7 +99,7 @@ foreach(TEST ${TESTS})
 endforeach()
 
 if(MIGRAPH_ENABLE_GPU)
-    # gpu tests
+#gpu tests
     file(GLOB GPU_TESTS gpu/*.cpp)
 
     foreach(TEST ${GPU_TESTS})
@@ -106,9 +109,31 @@ if(MIGRAPH_ENABLE_GPU)
     endforeach()
 endif()
 
+# Onnx test
 add_executable(test_onnx onnx/onnx_test.cpp)
 target_link_libraries(test_onnx migraph_onnx)
 target_include_directories(test_onnx PUBLIC include)
 add_test(NAME test_onnx COMMAND $<TARGET_FILE:test_onnx> WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/onnx) 
 add_dependencies(tests test_onnx)
 add_dependencies(check test_onnx)
+
+function(test_header NAME HEADER)
+
+    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/header-main-include-${NAME}.cpp 
+        "#include <${HEADER}>\nint main() {}\n"
+    )
+    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/header-static-include-${NAME}.cpp 
+        "#include <${HEADER}>\n"
+    )
+    add_test_executable(${NAME}
+        ${CMAKE_CURRENT_BINARY_DIR}/header-main-include-${NAME}.cpp 
+        ${CMAKE_CURRENT_BINARY_DIR}/header-static-include-${NAME}.cpp
+    )
+endfunction()
+
+file(GLOB HEADERS ${CMAKE_SOURCE_DIR}/src/include/migraph/*.hpp)
+
+foreach(HEADER ${HEADERS})
+    get_filename_component(BASE_NAME ${HEADER} NAME_WE)
+    test_header(header_${BASE_NAME} migraph/${BASE_NAME}.hpp)
+endforeach()

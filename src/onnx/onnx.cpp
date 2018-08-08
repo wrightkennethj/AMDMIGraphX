@@ -63,6 +63,7 @@ struct onnx_parser
         add_mem_op("MaxPool", &onnx_parser::parse_pooling);
         add_mem_op("Reshape", &onnx_parser::parse_reshape);
         add_mem_op("Gemm", &onnx_parser::parse_gemm);
+        add_mem_op("BatchNormalization", &onnx_parser::parse_batchnorm);
     }
 
     template <class F>
@@ -191,14 +192,46 @@ struct onnx_parser
         {
             transb = parse_value(attributes.at("transB")).at<bool>();
         }
+        std::vector<int64_t> perm = {1, 0};
+        auto l1 = (transa) ? prog.add_instruction(transpose{perm}, args[0]) : args[0];
+        auto l2 = (transb) ? prog.add_instruction(transpose{perm}, args[1]) : args[1];
         if(args.size() == 3)
         {
             uint64_t axis = 1;
-            auto l1 = prog.add_instruction(gemm{alpha, beta, transa, transb}, args[0], args[1]);
-            auto l2 = prog.add_instruction(broadcast{axis}, l1, args[2]);
-            return prog.add_instruction(add{}, l1, l2);
+            auto l3       = prog.add_instruction(gemm{alpha, beta}, l1, l2);
+            auto l4       = prog.add_instruction(broadcast{axis}, l3, args[2]);
+            return prog.add_instruction(add{}, l3, l4);
         }
-        return prog.add_instruction(gemm{alpha, beta, transa, transb}, args);
+        return prog.add_instruction(gemm{alpha, beta}, l1, l2);
+    }
+
+    instruction_ref
+    parse_batchnorm(std::string, attribute_map attributes, std::vector<instruction_ref> args)
+    {
+        float epsilon                                 = 1e-5f;
+        float momentum                                = 0.9f;
+        batch_norm_inference::bn_infer_mode_t bn_mode = batch_norm_inference::spatial;
+        bool is_test                                  = false;
+        if(contains(attributes, "epsilon"))
+        {
+            epsilon = parse_value(attributes.at("epsilon")).at<float>();
+        }
+        if(contains(attributes, "momentum"))
+        {
+            epsilon = parse_value(attributes.at("momentum")).at<float>();
+        }
+        if(contains(attributes, "is_test"))
+        {
+            is_test = parse_value(attributes.at("is_test")).at<uint64_t>() > 0;
+        }
+        if(contains(attributes, "spatial"))
+        {
+            bn_mode = (parse_value(attributes.at("spatial")).at<uint64_t>() > 0)
+                          ? batch_norm_inference::spatial
+                          : batch_norm_inference::per_activation;
+        }
+        batch_norm_inference op{epsilon, momentum, bn_mode, is_test};
+        return prog.add_instruction(op, args);
     }
 
     void parse_from(std::istream& is)

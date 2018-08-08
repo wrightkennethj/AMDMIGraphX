@@ -56,16 +56,34 @@ struct cpu_batch_norm_inference
         auto image_height = output_shape.lens()[2];
         auto image_width  = output_shape.lens()[3];
 
-        visit_all(output, input, mini_batch_mean, mini_batch_variance, arg_gamma, arg_bias)(
-            [&](auto result, auto buffer, auto mean, auto variance, auto gamma, auto bias) {
+        if(op.bn_mode == batch_norm_inference::spatial)
+        {
+            visit_all(output, input, mini_batch_mean, mini_batch_variance, arg_gamma, arg_bias)(
+                [&](auto result, auto buffer, auto mean, auto variance, auto gamma, auto bias) {
 
-                dfor(num_batch, num_channels, image_height, image_width)(
-                    [&](std::size_t n, std::size_t c, std::size_t h, std::size_t w) {
-                        result(n, c, h, w) = gamma(c) * (buffer(n, c, h, w) - mean(c)) /
-                                                 std::sqrt(variance(c) + epsilon) +
-                                             bias(c);
-                    });
-            });
+                    dfor(num_batch, num_channels, image_height, image_width)(
+                        [&](std::size_t n, std::size_t c, std::size_t h, std::size_t w) {
+                            result(n, c, h, w) = gamma(c) * (buffer(n, c, h, w) - mean(c)) /
+                                                     std::sqrt(variance(c) + epsilon) +
+                                                 bias(c);
+                        });
+                });
+        }
+
+        if(op.bn_mode == batch_norm_inference::per_activation)
+        {
+            visit_all(output, input, mini_batch_mean, mini_batch_mean, arg_gamma, arg_bias)(
+                [&](auto result, auto buffer, auto mean, auto variance, auto gamma, auto bias) {
+
+                    dfor(num_batch, num_channels, image_height, image_width)(
+                        [&](std::size_t n, std::size_t c, std::size_t h, std::size_t w) {
+                            result(n, c, h, w) = gamma(c, h, w) *
+                                                     (buffer(n, c, h, w) - mean(c, h, w)) /
+                                                     std::sqrt(variance(c, h, w) + epsilon) +
+                                                 bias(c, h, w);
+                        });
+                });
+        }
 
         return output;
     }
@@ -185,18 +203,6 @@ struct cpu_pooling
     }
 };
 
-struct cpu_transpose
-{
-    transpose op;
-
-    std::string name() const { return "cpu::transpose"; }
-    shape compute_shape(std::vector<shape> inputs) const { return op.compute_shape(inputs); }
-    argument compute(context&, shape output_shape, std::vector<argument> args) const
-    {
-        return {output_shape, std::move(args.front().data)};
-    }
-};
-
 struct cpu_contiguous
 {
     contiguous op;
@@ -214,18 +220,6 @@ struct cpu_contiguous
     }
 };
 
-struct cpu_reshape
-{
-    reshape op;
-    std::string name() const { return "cpu::reshape"; }
-    shape compute_shape(std::vector<shape> inputs) const { return op.compute_shape(inputs); }
-
-    argument compute(context&, shape output_shape, std::vector<argument> args) const
-    {
-        return {output_shape, std::move(args.front().data)};
-    }
-};
-
 struct cpu_gemm
 {
     gemm op;
@@ -237,18 +231,18 @@ struct cpu_gemm
         argument result{output_shape};
         auto alpha  = op.alpha;
         auto beta   = op.beta;
-        auto transa = op.transa;
-        auto transb = op.transb;
+        auto transa = args[0].get_shape().transposed();
+        auto transb = args[1].get_shape().transposed();
         visit_all(result, args[0], args[1])([&](auto cmat, auto amat, auto bmat) {
-            auto m = result.get_shape().lens()[0];
-            auto n = result.get_shape().lens()[1];
+            auto m = cmat.get_shape().lens()[0];
+            auto n = cmat.get_shape().lens()[1];
+            auto k = amat.get_shape().lens()[1];
 
             auto a = amat.data();
             auto b = bmat.data();
             auto c = cmat.data();
             if(!transa && !transb)
             {
-                auto k = amat.get_shape().lens()[1];
                 for(int ii = 0; ii < m; ii++)
                 {
                     for(int jj = 0; jj < n; jj++)
@@ -272,7 +266,6 @@ struct cpu_gemm
             }
             else if(!transa && transb)
             {
-                auto k = amat.get_shape().lens()[1];
                 for(int ii = 0; ii < m; ii++)
                 {
                     for(int jj = 0; jj < n; jj++)
@@ -288,7 +281,6 @@ struct cpu_gemm
             }
             else if(transa && !transb)
             {
-                auto k = amat.get_shape().lens()[0];
                 for(int ii = 0; ii < m; ii++)
                 {
                     for(int jj = 0; jj < n; jj++)
@@ -304,7 +296,6 @@ struct cpu_gemm
             }
             else
             {
-                auto k = amat.get_shape().lens()[0];
                 for(int ii = 0; ii < m; ii++)
                 {
                     for(int jj = 0; jj < n; jj++)
@@ -582,9 +573,7 @@ struct cpu_apply
         apply_map["gemm"]        = extend_op<cpu_gemm, gemm>();
         apply_map["batch_norm_inference"] =
             extend_op<cpu_batch_norm_inference, batch_norm_inference>();
-        apply_map["reshape"]    = extend_op<cpu_reshape, reshape>();
         apply_map["contiguous"] = extend_op<cpu_contiguous, contiguous>();
-        apply_map["transpose"]  = extend_op<cpu_transpose, transpose>();
 
         apply_map["identity"] = simple_op<cpu_unary<identity_op>>();
         apply_map["tanh"]     = simple_op<cpu_unary<tanh_op>>();
