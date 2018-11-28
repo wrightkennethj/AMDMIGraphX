@@ -1,0 +1,486 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Program &#8212; MIGraphX 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Targets" href="targets.html" />
+    <link rel="prev" title="Operators" href="operators.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="program">
+<h1>Program<a class="headerlink" href="#program" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="instruction">
+<h2>instruction<a class="headerlink" href="#instruction" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx11instructionE">
+<span id="migraphx::instruction"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction"></span><em class="property">struct </em><code class="descname">instruction</code><a class="headerlink" href="#_CPPv2N8migraphx11instructionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction11instructionEv">
+<span id="migraphx::instruction::instruction"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a711d2a9b0333d41ae59a1951073552b3"></span><code class="descname">instruction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction11instructionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction11instructionE9operation5shapeNSt6vectorI15instruction_refEE">
+<span id="migraphx::instruction::instruction__operation.shape.std::vector:instruction_ref:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a144db5f51bb07fe8368864a033ea8efc"></span><code class="descname">instruction</code><span class="sig-paren">(</span><a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> <em>o</em>, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>r</em>, std::vector&lt;<a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a>&gt; <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction11instructionE9operation5shapeNSt6vectorI15instruction_refEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction11instructionE7literal">
+<span id="migraphx::instruction::instruction__literal"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1abe625e5c484129f36babd5b4c8d10ef8"></span><code class="descname">instruction</code><span class="sig-paren">(</span><a class="reference internal" href="data.html#_CPPv2N8migraphx7literalE" title="migraphx::literal">literal</a> <em>l</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction11instructionE7literal" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction7replaceERK5shape">
+<span id="migraphx::instruction::replace__shapeCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a1eb78c7a935b2092cc98ace2a57916a4"></span>void <code class="descname">replace</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction7replaceERK5shape" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction15recompute_shapeEv">
+<span id="migraphx::instruction::recompute_shape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1af4b71e1c0fde15bba80d1612169e3b46"></span>void <code class="descname">recompute_shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction15recompute_shapeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction15clear_argumentsEv">
+<span id="migraphx::instruction::clear_arguments"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a501854300e7eeb58af30a4ee46aaa2a9"></span>void <code class="descname">clear_arguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction15clear_argumentsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11instruction5validE15instruction_ref">
+<span id="migraphx::instruction::valid__instruction_refC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1add95c9b0746d7c95f47645affec9d6e4"></span>bool <code class="descname">valid</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>start</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11instruction5validE15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11instruction5validEv">
+<span id="migraphx::instruction::validC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a45e4e339113e2ff71b78425572accdb6"></span>bool <code class="descname">valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11instruction5validEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11instruction9get_shapeEv">
+<span id="migraphx::instruction::get_shapeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a7665c7e66a9fb0fa9edc83b12e2bee63"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">get_shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11instruction9get_shapeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11instruction11get_literalEv">
+<span id="migraphx::instruction::get_literalC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1ad1a78a5d48aa60533ee7dac296be01de"></span><em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx7literalE" title="migraphx::literal">literal</a> &amp;<code class="descname">get_literal</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11instruction11get_literalEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11instruction12get_operatorEv">
+<span id="migraphx::instruction::get_operatorC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a2feec31991a96c7c611dc1865aa8f3a2"></span><em class="property">const</em> <a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> &amp;<code class="descname">get_operator</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11instruction12get_operatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11instruction4nameEv">
+<span id="migraphx::instruction::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1ac12ad1579871e7d90f661b906d9c51d3"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11instruction4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11instruction6inputsEv">
+<span id="migraphx::instruction::inputsC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1af9cddec2f0994d44f7d775786e714b9b"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a>&gt; &amp;<code class="descname">inputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11instruction6inputsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11instruction7outputsEv">
+<span id="migraphx::instruction::outputsC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a6c42e94d98cd0655349809c82152a91c"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a>&gt; &amp;<code class="descname">outputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11instruction7outputsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction10add_outputE15instruction_ref">
+<span id="migraphx::instruction::add_output__instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a38fc8fd032998a90417e6d15c349196d"></span>void <code class="descname">add_output</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction10add_outputE15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction13remove_outputERK1T">
+<span id="migraphx::instruction::remove_output__TCR"></span><em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a95265062e31438afc74172ce35f74aad"></span>void <code class="descname">remove_output</code><span class="sig-paren">(</span><em class="property">const</em> T &amp;<em>ins</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction13remove_outputERK1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction13backreferenceE15instruction_ref">
+<span id="migraphx::instruction::backreference__instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1abf3e8aba4d9200d0f8c15bc764cc23d8"></span>void <code class="descname">backreference</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction13backreferenceE15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction16replace_argumentE15instruction_ref15instruction_ref15instruction_ref">
+<span id="migraphx::instruction::replace_argument__instruction_ref.instruction_ref.instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a376a4bd6e1276620c133d25df8670a66"></span>void <code class="descname">replace_argument</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em>, <a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>old</em>, <a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>new_ins</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction16replace_argumentE15instruction_ref15instruction_ref15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction7replaceE15instruction_ref9operationRK5shapeNSt6vectorI15instruction_refEE">
+<span id="migraphx::instruction::replace__instruction_ref.operation.shapeCR.std::vector:instruction_ref:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a08d659ec4220e7c708cd9ecbb07a8efd"></span>void <code class="descname">replace</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em>, <a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> <em>o</em>, <em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>r</em>, std::vector&lt;<a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a>&gt; <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction7replaceE15instruction_ref9operationRK5shapeNSt6vectorI15instruction_refEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11instruction16get_output_aliasE15instruction_ref">
+<span id="migraphx::instruction::get_output_alias__instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a077059e67e94040122c13bbf111d3036"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">get_output_alias</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11instruction16get_output_aliasE15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv2eqRK11instruction15instruction_ref">
+<span id="eq-operator__instructionCR.instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a47f080bdde0400fbfd79fddb7518568d"></span>bool <code class="descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> instruction &amp;<em>i</em>, instruction_ref <em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2eqRK11instruction15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2eqRK11instructionRK11instruction">
+<span id="eq-operator__instructionCR.instructionCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a935bdd9d96525c6bde37642ebdb82059"></span>bool <code class="descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> instruction &amp;<em>x</em>, <em class="property">const</em> instruction &amp;<em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2eqRK11instructionRK11instruction" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2neRK11instructionRK11instruction">
+<span id="neq-operator__instructionCR.instructionCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1ae4840290c6e526a67f7d5fa49b55d546"></span>bool <code class="descname">operator!=</code><span class="sig-paren">(</span><em class="property">const</em> instruction &amp;<em>x</em>, <em class="property">const</em> instruction &amp;<em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2neRK11instructionRK11instruction" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2eq15instruction_refRK11instruction">
+<span id="eq-operator__instruction_ref.instructionCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a0a532917de9d65592f2e2d9f9ae0b3c4"></span>bool <code class="descname">operator==</code><span class="sig-paren">(</span>instruction_ref <em>ref</em>, <em class="property">const</em> instruction &amp;<em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2eq15instruction_refRK11instruction" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2neRK11instruction15instruction_ref">
+<span id="neq-operator__instructionCR.instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a856c08205f38b70087f49020b159b6c8"></span>bool <code class="descname">operator!=</code><span class="sig-paren">(</span><em class="property">const</em> instruction &amp;<em>i</em>, instruction_ref <em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2neRK11instruction15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2ne15instruction_refRK11instruction">
+<span id="neq-operator__instruction_ref.instructionCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1instruction_1a16e8732f85adb71e06ef79cd58f4a12e"></span>bool <code class="descname">operator!=</code><span class="sig-paren">(</span>instruction_ref <em>ref</em>, <em class="property">const</em> instruction &amp;<em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2ne15instruction_refRK11instruction" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="instruction-ref">
+<h2>instruction_ref<a class="headerlink" href="#instruction-ref" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="_CPPv2N8migraphx15instruction_refE">
+<span id="migraphx::instruction_ref"></span><em class="property">type </em><code class="descclassname">migraphx::</code><code class="descname">instruction_ref</code><a class="headerlink" href="#_CPPv2N8migraphx15instruction_refE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>References an instruction in the program.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h2>program<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx7programE">
+<span id="migraphx::program"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program"></span><em class="property">struct </em><code class="descname">program</code><a class="headerlink" href="#_CPPv2N8migraphx7programE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the instruction stream. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2N8migraphx7program13parameter_mapE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1af226bae1fdb721a4a794b4d5379e822e"></span><em class="property">using </em><code class="descname">parameter_map</code> = std::unordered_map&lt;std::string, <a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt;<a class="headerlink" href="#_CPPv2N8migraphx7program13parameter_mapE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program7programEv">
+<span id="migraphx::program::program"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ae6fbf664625f2eca37d135f14daede42"></span><code class="descname">program</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program7programEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program7programERR7program">
+<span id="migraphx::program::program__programRR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ab58a40cee9ee2defb24be2894da5d2e9"></span><code class="descname">program</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx7program7programEv" title="migraphx::program::program">program</a>&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program7programERR7program" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7programaSERR7program">
+<span id="migraphx::program::assign-operator__programRR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a0c27d307eeeb9d96e5401593bdaaca7f"></span><a class="reference internal" href="#_CPPv2N8migraphx7programE" title="migraphx::program">program</a> &amp;<code class="descname">operator=</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx7programE" title="migraphx::program">program</a>&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7programaSERR7program" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7programD0Ev">
+<span id="migraphx::program::~program"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a1a11c953b89140eaa48da6961ab8b380"></span><code class="descname">~program</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7programD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program15add_instructionE9operationDp2Ts">
+<span id="migraphx::program::add_instruction__operation.TsDp"></span><em class="property">template </em>&lt;class… <em>Ts</em>&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a193cb58a83cdc50af9ed5b893fc3cf53"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">add_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> <em>op</em>, Ts… <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program15add_instructionE9operationDp2Ts" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program15add_instructionERK9operationNSt6vectorI15instruction_refEE">
+<span id="migraphx::program::add_instruction__operationCR.std::vector:instruction_ref:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1aa99e7f39ef884a8533f8cf41df3da405"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">add_instruction</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> &amp;<em>op</em>, std::vector&lt;<a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a>&gt; <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program15add_instructionERK9operationNSt6vectorI15instruction_refEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program18insert_instructionE15instruction_ref9operationDp2Ts">
+<span id="migraphx::program::insert_instruction__instruction_ref.operation.TsDp"></span><em class="property">template </em>&lt;class… <em>Ts</em>&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a22c3ff9499a5f94c4941ca989bb098a0"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">insert_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em>, <a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> <em>op</em>, Ts… <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program18insert_instructionE15instruction_ref9operationDp2Ts" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program18insert_instructionE15instruction_refRK9operationNSt6vectorI15instruction_refEE">
+<span id="migraphx::program::insert_instruction__instruction_ref.operationCR.std::vector:instruction_ref:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1aeed68a4a6141be46a4f2e96d2db26f9b"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">insert_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em>, <em class="property">const</em> <a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> &amp;<em>op</em>, std::vector&lt;<a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a>&gt; <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program18insert_instructionE15instruction_refRK9operationNSt6vectorI15instruction_refEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program19replace_instructionE15instruction_ref9operationDp2Ts">
+<span id="migraphx::program::replace_instruction__instruction_ref.operation.TsDp"></span><em class="property">template </em>&lt;class… <em>Ts</em>&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a0bf8f25921dca7a95bfd3e07dac59d5b"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">replace_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em>, <a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> <em>op</em>, Ts… <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program19replace_instructionE15instruction_ref9operationDp2Ts" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program19replace_instructionE15instruction_refRK9operationNSt6vectorI15instruction_refEE">
+<span id="migraphx::program::replace_instruction__instruction_ref.operationCR.std::vector:instruction_ref:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1afd494258a5c3fc04fe786aa9595e0173"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">replace_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em>, <em class="property">const</em> <a class="reference internal" href="operators.html#_CPPv2N8migraphx9operationE" title="migraphx::operation">operation</a> &amp;<em>op</em>, std::vector&lt;<a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a>&gt; <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program19replace_instructionE15instruction_refRK9operationNSt6vectorI15instruction_refEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program19replace_instructionE15instruction_ref15instruction_ref">
+<span id="migraphx::program::replace_instruction__instruction_ref.instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ac34428c78a26b95f9841f861718667e3"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">replace_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em>, <a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>rep</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program19replace_instructionE15instruction_ref15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program18remove_instructionE15instruction_ref">
+<span id="migraphx::program::remove_instruction__instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a6b560b8a94101707c8b026642ebd201e"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">remove_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program18remove_instructionE15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program19remove_instructionsE15instruction_ref15instruction_ref">
+<span id="migraphx::program::remove_instructions__instruction_ref.instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a660ab9c41e21da5d53cf0fbad95adc0d"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">remove_instructions</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>first</em>, <a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>last</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program19remove_instructionsE15instruction_ref15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program16move_instructionE15instruction_ref15instruction_ref">
+<span id="migraphx::program::move_instruction__instruction_ref.instruction_ref"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a102760128c0badf98ce0c5626af6c2ed"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">move_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>src</em>, <a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>dst</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program16move_instructionE15instruction_ref15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program11add_literalEDpRR2Ts">
+<span id="migraphx::program::add_literal__TsRRDp"></span><em class="property">template </em>&lt;class… <em>Ts</em>&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1abe3f6419491a1e7f246677ab83df8db2"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">add_literal</code><span class="sig-paren">(</span>Ts&amp;&amp;… <em>xs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program11add_literalEDpRR2Ts" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program11add_literalE7literal">
+<span id="migraphx::program::add_literal__literal"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a7792541a0396110af8fc7735ee3d6d10"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">add_literal</code><span class="sig-paren">(</span><a class="reference internal" href="data.html#_CPPv2N8migraphx7literalE" title="migraphx::literal">literal</a> <em>l</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program11add_literalE7literal" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program11add_outlineERK5shape">
+<span id="migraphx::program::add_outline__shapeCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1af1cc718fdcddb789260f8cc9202268e1"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">add_outline</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program11add_outlineERK5shape" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program13add_parameterENSt6stringE5shape">
+<span id="migraphx::program::add_parameter__ss.shape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a2e6d7d6dca95b4f4c2de0faa8a043286"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">add_parameter</code><span class="sig-paren">(</span>std::string <em>name</em>, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program13add_parameterENSt6stringE5shape" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program19get_parameter_shapeENSt6stringE">
+<span id="migraphx::program::get_parameter_shape__ssC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a4955e5810dffd0622f84e68305a3d459"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">get_parameter_shape</code><span class="sig-paren">(</span>std::string <em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program19get_parameter_shapeENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program13get_parameterENSt6stringE">
+<span id="migraphx::program::get_parameter__ssC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a3736d42e0c0c018166f39a18119cc687"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">get_parameter</code><span class="sig-paren">(</span>std::string <em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program13get_parameterENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program20get_parameter_shapesEv">
+<span id="migraphx::program::get_parameter_shapesC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a803342b713337e8455cec5095e5b9172"></span>std::unordered_map&lt;std::string, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <code class="descname">get_parameter_shapes</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program20get_parameter_shapesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program4evalE13parameter_map">
+<span id="migraphx::program::eval__parameter_mapC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ae0ee7660bdd721b9564a96778cb589f0"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">eval</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx7program13parameter_mapE" title="migraphx::program::parameter_map">parameter_map</a> <em>params</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program4evalE13parameter_map" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program15has_instructionE15instruction_ref">
+<span id="migraphx::program::has_instruction__instruction_refC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1acf2f52afbb3dfdb52060e6b8a5a371cd"></span>bool <code class="descname">has_instruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program15has_instructionE15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program4sizeEv">
+<span id="migraphx::program::sizeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ae16935da8fd5bebfe0cf9343e037b607"></span>std::size_t <code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program5beginEv">
+<span id="migraphx::program::beginC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a93273851f2a79e282e21be62abd3f608"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program3endEv">
+<span id="migraphx::program::endC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ad00b59e4d04d7f9df5c3723dd0974383"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program9get_shapeEv">
+<span id="migraphx::program::get_shapeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a3a434d60ab30efe28b864bbbc60aa31e"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">get_shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program9get_shapeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program8validateEv">
+<span id="migraphx::program::validateC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a0877431b0b1249d7ed9bd046b03ef408"></span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <code class="descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program8validateEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7program7compileERK6target6tracer">
+<span id="migraphx::program::compile__targetCR.tracer"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a2ffafd09454e3c697a123dba03a424b2"></span>void <code class="descname">compile</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="targets.html#_CPPv2N8migraphx6targetE" title="migraphx::target">target</a> &amp;<em>t</em>, tracer <em>trace</em> = tracer {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7program7compileERK6target6tracer" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program11perf_reportERNSt7ostreamENSt6size_tE13parameter_map">
+<span id="migraphx::program::perf_report__osR.std::s.parameter_mapC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ae5a9cd2eecf3507a9b3f09ecfb3d93b4"></span>void <code class="descname">perf_report</code><span class="sig-paren">(</span>std::ostream &amp;<em>os</em>, std::size_t <em>n</em>, <a class="reference internal" href="#_CPPv2N8migraphx7program13parameter_mapE" title="migraphx::program::parameter_map">parameter_map</a> <em>params</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program11perf_reportERNSt7ostreamENSt6size_tE13parameter_map" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program11debug_printEv">
+<span id="migraphx::program::debug_printC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ad65fc8216d34e828f28afb13e8e1a4a8"></span>void <code class="descname">debug_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program11debug_printEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program11debug_printE15instruction_ref">
+<span id="migraphx::program::debug_print__instruction_refC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1af4384587ebe1e20ddc802e3fc6460335"></span>void <code class="descname">debug_print</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a> <em>ins</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program11debug_printE15instruction_ref" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7program11debug_printERKNSt6vectorI15instruction_refEE">
+<span id="migraphx::program::debug_print__std::vector:instruction_ref:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1a2a0759f13fed30f2abf597956ecb7a1e"></span>void <code class="descname">debug_print</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv2N8migraphx15instruction_refE" title="migraphx::instruction_ref">instruction_ref</a>&gt; &amp;<em>inss</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7program11debug_printERKNSt6vectorI15instruction_refEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv2lsRNSt7ostreamERK7program">
+<span id="lshift-operator__osR.programCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ab073b77280800346e92e04bd9fd123f3"></span>std::ostream &amp;<code class="descname">operator&lt;&lt;</code><span class="sig-paren">(</span>std::ostream &amp;<em>os</em>, <em class="property">const</em> program &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2lsRNSt7ostreamERK7program" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2eqRK7programRK7program">
+<span id="eq-operator__programCR.programCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1ace5a43c105bd2dd9ad21453e4657bac9"></span>bool <code class="descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> program &amp;<em>x</em>, <em class="property">const</em> program &amp;<em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2eqRK7programRK7program" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2neRK7programRK7program">
+<span id="neq-operator__programCR.programCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1program_1adb2a4209206db1ae6aeca00724bd6eaa"></span>bool <code class="descname">operator!=</code><span class="sig-paren">(</span><em class="property">const</em> program &amp;<em>x</em>, <em class="property">const</em> program &amp;<em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2neRK7programRK7program" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="parse-onnx">
+<h2>parse_onnx<a class="headerlink" href="#parse-onnx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv2N8migraphx10parse_onnxERKNSt6stringE">
+<span id="migraphx::parse_onnx__ssCR"></span><span class="target" id="namespacemigraphx_1_1MIGRAPHX__INLINE__NS_1abb4c1cb39e04456e17b552de6d455442"></span><a class="reference internal" href="#_CPPv2N8migraphx7programE" title="migraphx::program">program</a> <code class="descclassname">migraphx::</code><code class="descname">parse_onnx</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx10parse_onnxERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a program from an onnx file. </p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Program</a><ul>
+<li><a class="reference internal" href="#instruction">instruction</a></li>
+<li><a class="reference internal" href="#instruction-ref">instruction_ref</a></li>
+<li><a class="reference internal" href="#id1">program</a></li>
+<li><a class="reference internal" href="#parse-onnx">parse_onnx</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../user_guide.html">User Guide</a><ul>
+      <li>Previous: <a href="operators.html" title="previous chapter">Operators</a></li>
+      <li>Next: <a href="targets.html" title="next chapter">Targets</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/program.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, AMD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/reference/program.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

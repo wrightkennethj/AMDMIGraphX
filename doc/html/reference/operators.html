@@ -1,0 +1,1375 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Operators &#8212; MIGraphX 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Program" href="program.html" />
+    <link rel="prev" title="Data types" href="data.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="operators">
+<h1>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="operation">
+<h2>operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx9operationE">
+<span id="migraphx::operation"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1operation"></span><em class="property">struct </em><code class="descname">operation</code><a class="headerlink" href="#_CPPv2N8migraphx9operationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The operation interface represents an action an instruction will perform. All operation classes must be CopyConstructible. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx9operation4nameEv">
+<span id="migraphx::operation::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1operation_1abadb06aee51ca696ca75f1bab0486f5e"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx9operation4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A unique name identifying the operation. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx9operation13compute_shapeERKNSt6vectorI5shapeEE">
+<span id="migraphx::operation::compute_shape__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1operation_1a9731955f7c1b7f4a577f9ca8a079a9fa"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; &amp;<em>input</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx9operation13compute_shapeERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is used to compute the resulting shape from an operation. If an operation cannot be run with input shapes, then it should throw an exception. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx9operation7computeER7contextRK5shapeRKNSt6vectorI8argumentEE">
+<span id="migraphx::operation::compute__contextR.shapeCR.std::vector:argument:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1operation_1a2fdd656aea8bb8656903d36c249b39bc"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context &amp;<em>ctx</em>, <em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>output</em>, <em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; &amp;<em>input</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx9operation7computeER7contextRK5shapeRKNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This performs the operation’s computation. </p>
+<p>This method can be optional when the operation is only used as a placeholder to be lowered later on.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Return an <code class="docutils literal"><span class="pre">argument</span></code> of the result computation. The <code class="docutils literal"><span class="pre">shape</span></code> of <code class="docutils literal"><span class="pre">argument</span></code> should be the same the <code class="docutils literal"><span class="pre">output</span></code> shape. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ctx</span></code>: This is the context created by the <code class="docutils literal"><span class="pre">target</span></code> during compilation. Implementations can use the target’s <code class="docutils literal"><span class="pre">context</span></code> class rather than the <code class="docutils literal"><span class="pre">context</span></code> interface class. </li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: This is the output shape. It is equivalent to running <code class="docutils literal"><span class="pre">compute_shape</span></code> with each <code class="docutils literal"><span class="pre">shape</span></code> of the <code class="docutils literal"><span class="pre">argument</span></code>. </li>
+<li><code class="docutils literal"><span class="pre">input</span></code>: This is the <code class="docutils literal"><span class="pre">argument</span></code> result from the previous instruction’s computation. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx9operation12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::operation::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1operation_1a58920ad384946814b87f185ca5ca571b"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; &amp;<em>input</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx9operation12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An optional method to return which argument the output will alias. If there is no aliased output then -1 can be returned. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv2lsRNSt7ostreamERK9operation">
+<span id="lshift-operator__osR.operationCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1operation_1ae1e49f87bbb4446a516e1350aadaca7b"></span>std::ostream &amp;<code class="descname">operator&lt;&lt;</code><span class="sig-paren">(</span>std::ostream &amp;<em>os</em>, <em class="property">const</em> operation &amp;<em>op</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2lsRNSt7ostreamERK9operation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An optional stream operator to print the operation. When this is not implemented, it will just print the operation’s name. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h2>operators<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="_CPPv28migraphx">
+<span id="migraphx"></span><span class="target" id="namespacemigraphx"></span><em class="property">namespace </em><code class="descname">migraphx</code><a class="headerlink" href="#_CPPv28migraphx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="type">
+<dt id="_CPPv2N8migraphx18MIGRAPHX_INLINE_NSE">
+<span id="migraphx::MIGRAPHX_INLINE_NS"></span><span class="target" id="namespacemigraphx_1_1MIGRAPHX__INLINE__NS"></span><em class="property">namespace </em><code class="descname">MIGRAPHX_INLINE_NS</code><a class="headerlink" href="#_CPPv2N8migraphx18MIGRAPHX_INLINE_NSE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="type">
+<dt id="_CPPv2N8migraphx2opE">
+<span id="migraphx::op"></span><span class="target" id="namespacemigraphx_1_1MIGRAPHX__INLINE__NS_1_1op"></span><em class="property">namespace </em><code class="descname">op</code><a class="headerlink" href="#_CPPv2N8migraphx2opE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="class">
+<dt id="_CPPv2N8migraphx2op3absE">
+<span id="migraphx::op::abs"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1abs"></span><em class="property">struct </em><code class="descname">abs</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3absE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3abs4nameEv">
+<span id="migraphx::op::abs::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1abs_1a293b40ed6a8c0b6c056f10913fefd36d"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3abs4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op4acosE">
+<span id="migraphx::op::acos"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1acos"></span><em class="property">struct </em><code class="descname">acos</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op4acosE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4acos4nameEv">
+<span id="migraphx::op::acos::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1acos_1ac7364e53f4b54ee56eed1715d6fa2b82"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4acos4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3addE">
+<span id="migraphx::op::add"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1add"></span><em class="property">struct </em><code class="descname">add</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op6binaryE" title="migraphx::op::binary">binary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3addE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3add4nameEv">
+<span id="migraphx::op::add::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1add_1a692c7f0b084eb60eb502832b71701d94"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3add4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op4asinE">
+<span id="migraphx::op::asin"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1asin"></span><em class="property">struct </em><code class="descname">asin</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op4asinE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4asin4nameEv">
+<span id="migraphx::op::asin::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1asin_1a26531b7c95e871a1cf792be300a57a70"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4asin4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op4atanE">
+<span id="migraphx::op::atan"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1atan"></span><em class="property">struct </em><code class="descname">atan</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op4atanE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4atan4nameEv">
+<span id="migraphx::op::atan::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1atan_1a5d99939a0e06296a69dd0588484ec53e"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4atan4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op20batch_norm_inferenceE">
+<span id="migraphx::op::batch_norm_inference"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference"></span><em class="property">struct </em><code class="descname">batch_norm_inference</code><a class="headerlink" href="#_CPPv2N8migraphx2op20batch_norm_inferenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2N8migraphx2op15bn_infer_mode_tE">
+<span id="migraphx::op::bn_infer_mode_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1aac90480b3a35e87c941b477d93b2e342"></span><em class="property">enum </em><code class="descname">bn_infer_mode_t</code><a class="headerlink" href="#_CPPv2N8migraphx2op15bn_infer_mode_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx2op14per_activationE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1aac90480b3a35e87c941b477d93b2e342a051cce02f1af18a817a179d066a73442"></span><code class="descname">per_activation</code><a class="headerlink" href="#_CPPv2N8migraphx2op14per_activationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx2op7spatialE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1aac90480b3a35e87c941b477d93b2e342a5280517576acb2e834b9d86eaf6f87fb"></span><code class="descname">spatial</code><a class="headerlink" href="#_CPPv2N8migraphx2op7spatialE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op20batch_norm_inference4nameEv">
+<span id="migraphx::op::batch_norm_inference::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1a09d50e3e3912c0e46a877ae6ab92124b"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op20batch_norm_inference4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op20batch_norm_inference13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::batch_norm_inference::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1a27bb10bf2c80f7bca70c1f9ff487631b"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op20batch_norm_inference13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op20batch_norm_inference7epsilonE">
+<span id="migraphx::op::batch_norm_inference::epsilon__float"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1ac9625571f58b89d582a073d5de0404e6"></span>float <code class="descname">epsilon</code> = 1.0e-6f<a class="headerlink" href="#_CPPv2N8migraphx2op20batch_norm_inference7epsilonE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op20batch_norm_inference8momentumE">
+<span id="migraphx::op::batch_norm_inference::momentum__float"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1acf88eaa8b59fb2390863125387c9893f"></span>float <code class="descname">momentum</code> = 0.9f<a class="headerlink" href="#_CPPv2N8migraphx2op20batch_norm_inference8momentumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op20batch_norm_inference7bn_modeE">
+<span id="migraphx::op::batch_norm_inference::bn_mode__bn_infer_mode_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1a52f01e57bf28a7b786276498d018cf3e"></span><a class="reference internal" href="#_CPPv2N8migraphx2op15bn_infer_mode_tE" title="migraphx::op::bn_infer_mode_t">bn_infer_mode_t</a> <code class="descname">bn_mode</code> = <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1aac90480b3a35e87c941b477d93b2e342a5280517576acb2e834b9d86eaf6f87fb"><span class="std std-ref">spatial</span></a><a class="headerlink" href="#_CPPv2N8migraphx2op20batch_norm_inference7bn_modeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op20batch_norm_inference7reflectER4Self1F">
+<span id="migraphx::op::batch_norm_inference::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1batch__norm__inference_1a7b959aa120ebec8c722adee62fa1dd09"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op20batch_norm_inference7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op6binaryE">
+<span id="migraphx::op::binary"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1binary"></span><em class="property">struct </em><code class="descname">binary</code><a class="headerlink" href="#_CPPv2N8migraphx2op6binaryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><p>Subclassed by <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1add"><span class="std std-ref">migraphx::op::add</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1div"><span class="std std-ref">migraphx::op::div</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1mul"><span class="std std-ref">migraphx::op::mul</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sub"><span class="std std-ref">migraphx::op::sub</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6binary13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::binary::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1binary_1a9becb5c689edcbc5b2d62a1de4aaa348"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6binary13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op9broadcastE">
+<span id="migraphx::op::broadcast"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1broadcast"></span><em class="property">struct </em><code class="descname">broadcast</code><a class="headerlink" href="#_CPPv2N8migraphx2op9broadcastE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><p>The broadcast operator performs the numpy-style broadcasting of an axis of a given tensor. This is achieved primarily by setting the stride of the broadcasted axis to zero. Linear indicies are computed from multi-indicies by computing the inner product on the multi-index with the strides. For example, if we have a tensor A(2,3) it has lengths of (2,3) and strides of (3,1). If we want to compute the linear offset that corresponds to the element on the 2nd row (i = 1) and 3rd column (j = 2), we compute the following inner product (1,2) dot (3, 1) = 1*3 + 2*1 = 5. It is obvious from there that we can negate the effects of a given axis by setting the stride of that axis to zero. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9broadcast4nameEv">
+<span id="migraphx::op::broadcast::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1broadcast_1aadc697ed71390e6731361b09b15dd352"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9broadcast4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9broadcast13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::broadcast::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1broadcast_1a9ee485d09516b32e5ed585ced520e495"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9broadcast13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9broadcast7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::broadcast::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1broadcast_1a205ad92153c03b3c970ed2bfa5c91529"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9broadcast7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9broadcast12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::broadcast::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1broadcast_1a7a821006d73ca9564e88dec494e03025"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9broadcast12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op9broadcast4axisE">
+<span id="migraphx::op::broadcast::axis__uint64_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1broadcast_1a4973b7fffbebdd82712f7427c5e2cc7f"></span>uint64_t <code class="descname">axis</code> = 0<a class="headerlink" href="#_CPPv2N8migraphx2op9broadcast4axisE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op9broadcast15broadcast_shapeE">
+<span id="migraphx::op::broadcast::broadcast_shape__shape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1broadcast_1a0fcb7fa57c686e6a6fd89587f4183281"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">broadcast_shape</code><a class="headerlink" href="#_CPPv2N8migraphx2op9broadcast15broadcast_shapeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op9broadcast7reflectER4Self1F">
+<span id="migraphx::op::broadcast::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1broadcast_1ad74718e82dbd0534734bb5cfa5789862"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op9broadcast7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op6concatE">
+<span id="migraphx::op::concat"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1concat"></span><em class="property">struct </em><code class="descname">concat</code><a class="headerlink" href="#_CPPv2N8migraphx2op6concatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6concat4nameEv">
+<span id="migraphx::op::concat::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1concat_1a0b217ef90a4b1bfdd2d9c6c85e2cfb01"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6concat4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6concat15compute_offsetsERK5shapeKNSt6vectorI8argumentEE">
+<span id="migraphx::op::concat::compute_offsets__shapeCR.std::vector:argument:CC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1concat_1a6b6b92960caeb6b915628756bb19e0f3"></span>std::vector&lt;std::size_t&gt; <code class="descname">compute_offsets</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>output_shape</em>, <em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6concat15compute_offsetsERK5shapeKNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6concat13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::concat::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1concat_1a5d3db2b998171374c3ff154d2e700762"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6concat13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6concat12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::concat::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1concat_1a0b840d92a54c287138c3b207079e6404"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6concat12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op6concat4axisE">
+<span id="migraphx::op::concat::axis__std::s"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1concat_1a5801999699c528d37a11bd3fd468c257"></span>std::size_t <code class="descname">axis</code> = 0<a class="headerlink" href="#_CPPv2N8migraphx2op6concat4axisE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op10contiguousE">
+<span id="migraphx::op::contiguous"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1contiguous"></span><em class="property">struct </em><code class="descname">contiguous</code><a class="headerlink" href="#_CPPv2N8migraphx2op10contiguousE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><p>The contiguous operator takes a non-standard input tensor and returns the same tensor but in standard form. For example, if input tensor A which has lens = (4,5) is first transposed, i.e. lens = (5,4), this tensor’s data layout remained the same during the transpose operation; only it’s shape lengths and strides were changed. This leaves the tensor in a non-standard form. The contiguous operator copies the underlying data such that resulting tensor is returned to a standard form. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op10contiguous4nameEv">
+<span id="migraphx::op::contiguous::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1contiguous_1ab33a507d6e90c506280f55e7901cbde2"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op10contiguous4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op10contiguous13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::contiguous::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1contiguous_1a5dc6cb36c4234978d2ad34cf2857dc21"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op10contiguous13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op11convolutionE">
+<span id="migraphx::op::convolution"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution"></span><em class="property">struct </em><code class="descname">convolution</code><a class="headerlink" href="#_CPPv2N8migraphx2op11convolutionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2N8migraphx2op14padding_mode_tE">
+<span id="migraphx::op::padding_mode_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1accf2023b2ebda1f045b9f96690296ae7"></span><em class="property">enum </em><code class="descname">padding_mode_t</code><a class="headerlink" href="#_CPPv2N8migraphx2op14padding_mode_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx2op8default_E">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1accf2023b2ebda1f045b9f96690296ae7aa9551192981902c2cc8188dc04ccf2fa"></span><code class="descname">default_</code><a class="headerlink" href="#_CPPv2N8migraphx2op8default_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx2op4sameE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1accf2023b2ebda1f045b9f96690296ae7a549810cf6a522db2e28038f322217f72"></span><code class="descname">same</code><a class="headerlink" href="#_CPPv2N8migraphx2op4sameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx2op5validE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1accf2023b2ebda1f045b9f96690296ae7aebfc9a1680ab1a70cc0e370f64e9af02"></span><code class="descname">valid</code><a class="headerlink" href="#_CPPv2N8migraphx2op5validE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op11convolution4nameEv">
+<span id="migraphx::op::convolution::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1a886da8fb261edac811ef18718e567328"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op11convolution4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op11convolution13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::convolution::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1a770af51b162dea4476a358d43971ec42"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op11convolution13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op11convolution7paddingE">
+<span id="migraphx::op::convolution::padding__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1ab17c56215ff54a27fd88fb9e58d542ea"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">padding</code> = {{0, 0}}<a class="headerlink" href="#_CPPv2N8migraphx2op11convolution7paddingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op11convolution6strideE">
+<span id="migraphx::op::convolution::stride__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1ab9ac144896d10cdf96f1dae1d4a70e08"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">stride</code> = {{1, 1}}<a class="headerlink" href="#_CPPv2N8migraphx2op11convolution6strideE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op11convolution8dilationE">
+<span id="migraphx::op::convolution::dilation__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1ab2a5689e095c3c66133cbe9f2440f09c"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">dilation</code> = {{1, 1}}<a class="headerlink" href="#_CPPv2N8migraphx2op11convolution8dilationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op11convolution12padding_modeE">
+<span id="migraphx::op::convolution::padding_mode__padding_mode_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1af93424435e1686c38a5e25fb6fdbaedf"></span><a class="reference internal" href="#_CPPv2N8migraphx2op14padding_mode_tE" title="migraphx::op::padding_mode_t">padding_mode_t</a> <code class="descname">padding_mode</code> = <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1accf2023b2ebda1f045b9f96690296ae7aa9551192981902c2cc8188dc04ccf2fa"><span class="std std-ref">default_</span></a><a class="headerlink" href="#_CPPv2N8migraphx2op11convolution12padding_modeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op11convolution7reflectER4Self1F">
+<span id="migraphx::op::convolution::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1convolution_1a490dce1f846ca7aac692c348317e12d0"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op11convolution7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3cosE">
+<span id="migraphx::op::cos"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1cos"></span><em class="property">struct </em><code class="descname">cos</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3cosE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3cos4nameEv">
+<span id="migraphx::op::cos::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1cos_1a6fee8cbe42f2f3698939f50fead56c43"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3cos4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3divE">
+<span id="migraphx::op::div"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1div"></span><em class="property">struct </em><code class="descname">div</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op6binaryE" title="migraphx::op::binary">binary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3divE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3div4nameEv">
+<span id="migraphx::op::div::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1div_1ace5467c56c0bc28707e493bf86e701c5"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3div4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3dotE">
+<span id="migraphx::op::dot"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1dot"></span><em class="property">struct </em><code class="descname">dot</code><a class="headerlink" href="#_CPPv2N8migraphx2op3dotE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3dot4nameEv">
+<span id="migraphx::op::dot::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1dot_1a804c588c3e5c694439ef376679488bdc"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3dot4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3dot13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::dot::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1dot_1a0770d94882fd6a831362680d79227255"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3dot13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op3dot5alphaE">
+<span id="migraphx::op::dot::alpha__float"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1dot_1aa42f3bebf0c432a85bd0ae580ec4879a"></span>float <code class="descname">alpha</code> = 1.0<a class="headerlink" href="#_CPPv2N8migraphx2op3dot5alphaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op3dot4betaE">
+<span id="migraphx::op::dot::beta__float"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1dot_1a35c4b2721d550cc9fb6ae33bbbef4ec9"></span>float <code class="descname">beta</code> = 0.0<a class="headerlink" href="#_CPPv2N8migraphx2op3dot4betaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op3dot7reflectER4Self1F">
+<span id="migraphx::op::dot::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1dot_1accf9ecd06d7d614e7d27c010c2a3aa8f"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op3dot7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3expE">
+<span id="migraphx::op::exp"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1exp"></span><em class="property">struct </em><code class="descname">exp</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3expE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3exp4nameEv">
+<span id="migraphx::op::exp::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1exp_1ad5ee12d97acb608a6ad5663167ca6718"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3exp4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op7flattenE">
+<span id="migraphx::op::flatten"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1flatten"></span><em class="property">struct </em><code class="descname">flatten</code><a class="headerlink" href="#_CPPv2N8migraphx2op7flattenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7flatten4nameEv">
+<span id="migraphx::op::flatten::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1flatten_1a67a05be57af98a4d5c2c945690decba0"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7flatten4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7flatten13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::flatten::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1flatten_1a5142d3feadbe96b22818a7e0782c3632"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7flatten13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7flatten7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::flatten::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1flatten_1ac5519210bcea68d5369689e9d6e2fa75"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7flatten7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7flatten12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::flatten::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1flatten_1a1aaaf52b82f4e28d4fe41fe7460ea9c3"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7flatten12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op7flatten4axisE">
+<span id="migraphx::op::flatten::axis__uint64_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1flatten_1ad75542a2cac04caaf8f75d8e9cf8ca66"></span>uint64_t <code class="descname">axis</code> = 0<a class="headerlink" href="#_CPPv2N8migraphx2op7flatten4axisE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op7flatten7reflectER4Self1F">
+<span id="migraphx::op::flatten::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1flatten_1ac9177a8670e7013bbb28a4d3d104af28"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op7flatten7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op8identityE">
+<span id="migraphx::op::identity"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1identity"></span><em class="property">struct </em><code class="descname">identity</code><a class="headerlink" href="#_CPPv2N8migraphx2op8identityE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op8identity4nameEv">
+<span id="migraphx::op::identity::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1identity_1a5d6c631c3473c44c3feef5f51c2527b9"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op8identity4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op8identity13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::identity::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1identity_1a27a2bdebf729fb85231398ad31251c03"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op8identity13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op8identity7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::identity::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1identity_1ae753c8a4020addbaa23e68de7922e443"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op8identity7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op8identity12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::identity::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1identity_1a7c9fbbebeb44e9f06c9f0b1900ddd8eb"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op8identity12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op6im2colE">
+<span id="migraphx::op::im2col"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col"></span><em class="property">struct </em><code class="descname">im2col</code><a class="headerlink" href="#_CPPv2N8migraphx2op6im2colE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2N8migraphx2op14padding_mode_tE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1aebf63402a390d73e672c5a16b75a8414"></span><em class="property">enum </em><code class="descname">padding_mode_t</code><a class="headerlink" href="#_CPPv2N8migraphx2op14padding_mode_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt>
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1aebf63402a390d73e672c5a16b75a8414ad45d2ea04638795e885281573e1275f2"></span><code class="descname">default_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1aebf63402a390d73e672c5a16b75a8414a79325b2de28b6be969ef17d01a50b882"></span><code class="descname">same</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1aebf63402a390d73e672c5a16b75a8414abb95a1cbdcaf96bd5f6d914e927bc796"></span><code class="descname">valid</code><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6im2col4nameEv">
+<span id="migraphx::op::im2col::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1a77fe5f0662b8007a4d3147887e9ee289"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6im2col4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6im2col13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::im2col::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1a3452e110f42ddc4ec3b708e4272462cf"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6im2col13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op6im2col7paddingE">
+<span id="migraphx::op::im2col::padding__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1aa18fa445d0f7b5a4fe7e13933fcda7d2"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">padding</code> = {{0, 0}}<a class="headerlink" href="#_CPPv2N8migraphx2op6im2col7paddingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op6im2col6strideE">
+<span id="migraphx::op::im2col::stride__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1a02b1b51ea55130b3440f0b87a7aaaff4"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">stride</code> = {{1, 1}}<a class="headerlink" href="#_CPPv2N8migraphx2op6im2col6strideE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op6im2col8dilationE">
+<span id="migraphx::op::im2col::dilation__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1a5e1bd8d717b8e9f48024d612d1338541"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">dilation</code> = {{1, 1}}<a class="headerlink" href="#_CPPv2N8migraphx2op6im2col8dilationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op6im2col12padding_modeE">
+<span id="migraphx::op::im2col::padding_mode__padding_mode_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1a9affe77b983694bad87fc16d5b83d47d"></span><a class="reference internal" href="#_CPPv2N8migraphx2op14padding_mode_tE" title="migraphx::op::padding_mode_t">padding_mode_t</a> <code class="descname">padding_mode</code> = <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1aebf63402a390d73e672c5a16b75a8414ad45d2ea04638795e885281573e1275f2"><span class="std std-ref">default_</span></a><a class="headerlink" href="#_CPPv2N8migraphx2op6im2col12padding_modeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op6im2col7reflectER4Self1F">
+<span id="migraphx::op::im2col::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1im2col_1a27da97b4d0dd43a089b299adca33863a"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op6im2col7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op10leaky_reluE">
+<span id="migraphx::op::leaky_relu"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1leaky__relu"></span><em class="property">struct </em><code class="descname">leaky_relu</code><a class="headerlink" href="#_CPPv2N8migraphx2op10leaky_reluE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op10leaky_relu4nameEv">
+<span id="migraphx::op::leaky_relu::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1leaky__relu_1a87367719f30c451f5c8e291d34d8707d"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op10leaky_relu4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op10leaky_relu13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::leaky_relu::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1leaky__relu_1a2b52cd4444b5f3ef3e0270e3e88f45ea"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op10leaky_relu13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op10leaky_relu5alphaE">
+<span id="migraphx::op::leaky_relu::alpha__float"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1leaky__relu_1a37bc7c4400f8aa6a0dde4a9ed249d661"></span>float <code class="descname">alpha</code><a class="headerlink" href="#_CPPv2N8migraphx2op10leaky_relu5alphaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv2lsRNSt7ostreamERK10leaky_relu">
+<span id="lshift-operator__osR.leaky_reluCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1leaky__relu_1a02c27e2266abcb6c8fc65e346ac9e9e7"></span>std::ostream &amp;<code class="descname">operator&lt;&lt;</code><span class="sig-paren">(</span>std::ostream &amp;<em>os</em>, <em class="property">const</em> leaky_relu &amp;<em>op</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2lsRNSt7ostreamERK10leaky_relu" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op4loadE">
+<span id="migraphx::op::load"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1load"></span><em class="property">struct </em><code class="descname">load</code><a class="headerlink" href="#_CPPv2N8migraphx2op4loadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4load4nameEv">
+<span id="migraphx::op::load::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1load_1a9f0caf21039757f694b3ff54856eb328"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4load4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4load13compute_shapeERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::load::compute_shape__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1load_1a3aa9559529d0d5c8083309d93735d8c7"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; &amp;<em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4load13compute_shapeERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4load7computeER7contextRK5shapeRKNSt6vectorI8argumentEE">
+<span id="migraphx::op::load::compute__contextR.shapeCR.std::vector:argument:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1load_1ad283f157a54c60555f6bae74c3f0654d"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&amp;, <em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; &amp;<em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4load7computeER7contextRK5shapeRKNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4load12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::load::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1load_1a4c66772947c1ecd6e39542401ffeb7f6"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4load12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op4load1sE">
+<span id="migraphx::op::load::s__shape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1load_1a567eedc87b32507f3d4e0c1f07a9fb0a"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">s</code><a class="headerlink" href="#_CPPv2N8migraphx2op4load1sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op4load6offsetE">
+<span id="migraphx::op::load::offset__std::s"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1load_1a2df91bbdf2842ad551eae385313346a6"></span>std::size_t <code class="descname">offset</code> = 0<a class="headerlink" href="#_CPPv2N8migraphx2op4load6offsetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op4load7reflectER4Self1F">
+<span id="migraphx::op::load::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1load_1a4fab98451b9d1af509a3ce79d6de7163"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op4load7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3mulE">
+<span id="migraphx::op::mul"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1mul"></span><em class="property">struct </em><code class="descname">mul</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op6binaryE" title="migraphx::op::binary">binary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3mulE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3mul4nameEv">
+<span id="migraphx::op::mul::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1mul_1acbdcae9e294f2e60df4582faa70ccadc"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3mul4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op14multibroadcastE">
+<span id="migraphx::op::multibroadcast"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1multibroadcast"></span><em class="property">struct </em><code class="descname">multibroadcast</code><a class="headerlink" href="#_CPPv2N8migraphx2op14multibroadcastE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op14multibroadcast4nameEv">
+<span id="migraphx::op::multibroadcast::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1multibroadcast_1a42d630f7ef5b3700a69a22dbc279e77b"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op14multibroadcast4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op14multibroadcast13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::multibroadcast::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1multibroadcast_1a1e2274535356afaf51a16b1e89637ecb"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op14multibroadcast13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op14multibroadcast7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::multibroadcast::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1multibroadcast_1a1d1e1033fc7be94949166c04b4803d84"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op14multibroadcast7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op14multibroadcast12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::multibroadcast::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1multibroadcast_1abefd6cbd68de4cf08104793189a2aca1"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op14multibroadcast12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op14multibroadcast11output_lensE">
+<span id="migraphx::op::multibroadcast::output_lens__std::vector:std::s:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1multibroadcast_1a8762a210a248883697ed89aacccf2658"></span>std::vector&lt;std::size_t&gt; <code class="descname">output_lens</code><a class="headerlink" href="#_CPPv2N8migraphx2op14multibroadcast11output_lensE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op14multibroadcast7reflectER4Self1F">
+<span id="migraphx::op::multibroadcast::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1multibroadcast_1af0e2729e7ee4c8effbee3edf0828843a"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op14multibroadcast7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3negE">
+<span id="migraphx::op::neg"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1neg"></span><em class="property">struct </em><code class="descname">neg</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3negE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3neg4nameEv">
+<span id="migraphx::op::neg::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1neg_1a8b1de901ef9265516c9da8e95433db42"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3neg4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op14not_computableE">
+<span id="migraphx::op::not_computable"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1not__computable"></span><em class="property">struct </em><code class="descname">not_computable</code><a class="headerlink" href="#_CPPv2N8migraphx2op14not_computableE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op14not_computable7computeER7contextRK5shapeRKNSt6vectorI8argumentEE">
+<span id="migraphx::op::not_computable::compute__contextR.shapeCR.std::vector:argument:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1not__computable_1ac93f85973f702d70340b9108acba84f5"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&amp;, <em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op14not_computable7computeER7contextRK5shapeRKNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op7outlineE">
+<span id="migraphx::op::outline"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1outline"></span><em class="property">struct </em><code class="descname">outline</code><a class="headerlink" href="#_CPPv2N8migraphx2op7outlineE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7outline4nameEv">
+<span id="migraphx::op::outline::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1outline_1a7f30bab50b63998582ca83bd6a46e738"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7outline4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7outline13compute_shapeERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::outline::compute_shape__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1outline_1a97cefc275a9a303cd5b33c57dc81f99a"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; &amp;<em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7outline13compute_shapeERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7outline7computeER7contextRK5shapeRKNSt6vectorI8argumentEE">
+<span id="migraphx::op::outline::compute__contextR.shapeCR.std::vector:argument:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1outline_1ab11a5461fe0cfb355d74eaad4db7a151"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&amp;, <em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7outline7computeER7contextRK5shapeRKNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op7outline1sE">
+<span id="migraphx::op::outline::s__shape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1outline_1a4e16c5827b78eb5a344e696c5a4a5a16"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">s</code><a class="headerlink" href="#_CPPv2N8migraphx2op7outline1sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op7outline7reflectER4Self1F">
+<span id="migraphx::op::outline::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1outline_1a02c45c3f4400a19968e697e0c06262c8"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op7outline7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op7poolingE">
+<span id="migraphx::op::pooling"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1pooling"></span><em class="property">struct </em><code class="descname">pooling</code><a class="headerlink" href="#_CPPv2N8migraphx2op7poolingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7pooling4nameEv">
+<span id="migraphx::op::pooling::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1pooling_1a3f26bf8e3288b4449dbf626e32a935fd"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7pooling4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7pooling13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::pooling::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1pooling_1a02d2df6e0f5e9ba4703647a1c94593c1"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7pooling13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op7pooling4modeE">
+<span id="migraphx::op::pooling::mode__ss"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1pooling_1a86ce7f82f7d70eb90822784732dc7cc2"></span>std::string <code class="descname">mode</code> = “average”<a class="headerlink" href="#_CPPv2N8migraphx2op7pooling4modeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op7pooling7paddingE">
+<span id="migraphx::op::pooling::padding__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1pooling_1a76314655c993a279149b0b62f93109b0"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">padding</code> = {{0, 0}}<a class="headerlink" href="#_CPPv2N8migraphx2op7pooling7paddingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op7pooling6strideE">
+<span id="migraphx::op::pooling::stride__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1pooling_1ae7b21cf0f339d0756044ebb5165349b0"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">stride</code> = {{1, 1}}<a class="headerlink" href="#_CPPv2N8migraphx2op7pooling6strideE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op7pooling7lengthsE">
+<span id="migraphx::op::pooling::lengths__std::array:std::s.2:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1pooling_1a73fe7b13d937c99b5a905ac067416fe1"></span>std::array&lt;std::size_t, 2&gt; <code class="descname">lengths</code> = {{1, 1}}<a class="headerlink" href="#_CPPv2N8migraphx2op7pooling7lengthsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op7pooling7reflectER4Self1F">
+<span id="migraphx::op::pooling::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1pooling_1aa5c8fec355702f34f968061184f7e390"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op7pooling7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op4reluE">
+<span id="migraphx::op::relu"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1relu"></span><em class="property">struct </em><code class="descname">relu</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op4reluE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4relu4nameEv">
+<span id="migraphx::op::relu::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1relu_1a416a1bfde2650de7f89318d282fd43c6"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4relu4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op7reshapeE">
+<span id="migraphx::op::reshape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1reshape"></span><em class="property">struct </em><code class="descname">reshape</code><a class="headerlink" href="#_CPPv2N8migraphx2op7reshapeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7reshape4nameEv">
+<span id="migraphx::op::reshape::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1reshape_1a6e812e7bc438823005d8857f296c2f6f"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7reshape4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7reshape13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::reshape::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1reshape_1af4393747a433262cce3ffef08e26368a"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7reshape13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7reshape7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::reshape::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1reshape_1a0f496adaee248176f90a758c3bc66fc3"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7reshape7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7reshape12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::reshape::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1reshape_1a2ca30ec516b19f73e5102fb9a469929c"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7reshape12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op7reshape4dimsE">
+<span id="migraphx::op::reshape::dims__std::vector:int64_t:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1reshape_1afce1c3b50a585a04992f4e7476e6b669"></span>std::vector&lt;int64_t&gt; <code class="descname">dims</code><a class="headerlink" href="#_CPPv2N8migraphx2op7reshape4dimsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op7reshape7reflectER4Self1F">
+<span id="migraphx::op::reshape::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1reshape_1ae8b2354cd079031bc94adc8b98a3bda8"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op7reshape7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op6scalarE">
+<span id="migraphx::op::scalar"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1scalar"></span><em class="property">struct </em><code class="descname">scalar</code><a class="headerlink" href="#_CPPv2N8migraphx2op6scalarE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6scalar4nameEv">
+<span id="migraphx::op::scalar::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1scalar_1afb7252310aa2c0356a9d3b8126675f0f"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6scalar4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6scalar13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::scalar::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1scalar_1a56931539d4214d84dd6cc75c44e94df4"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6scalar13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6scalar7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::scalar::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1scalar_1a5d0c275fc10e178b33c475312e33fb4b"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6scalar7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op6scalar12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::scalar::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1scalar_1a0d9a96d38f837037c6e615fc18fae15d"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op6scalar12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op6scalar12scalar_bcastE">
+<span id="migraphx::op::scalar::scalar_bcast__shape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1scalar_1ac5ffafdad96e22eadcbdd3fabf1568d5"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">scalar_bcast</code><a class="headerlink" href="#_CPPv2N8migraphx2op6scalar12scalar_bcastE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op7sigmoidE">
+<span id="migraphx::op::sigmoid"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sigmoid"></span><em class="property">struct </em><code class="descname">sigmoid</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op7sigmoidE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7sigmoid4nameEv">
+<span id="migraphx::op::sigmoid::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sigmoid_1acd6fc6f572b343c578576e9767c4d22b"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7sigmoid4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3sinE">
+<span id="migraphx::op::sin"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sin"></span><em class="property">struct </em><code class="descname">sin</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3sinE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3sin4nameEv">
+<span id="migraphx::op::sin::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sin_1a363436c06267f07e76cf09ef00f04b24"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3sin4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op5sliceE">
+<span id="migraphx::op::slice"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice"></span><em class="property">struct </em><code class="descname">slice</code><a class="headerlink" href="#_CPPv2N8migraphx2op5sliceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op5slice4nameEv">
+<span id="migraphx::op::slice::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1a4fb2f4d905029e5818e90c79075b434d"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op5slice4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op5slice9fix_indexERKNSt6vectorINSt6size_tEEENSt6size_tE7int64_t">
+<span id="migraphx::op::slice::fix_index__std::vector:std::s:CR.std::s.int64_tC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1a03c83ad1a22ebee7ea76ae01ba1d69af"></span>auto <code class="descname">fix_index</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;std::size_t&gt; &amp;<em>lens</em>, std::size_t <em>axis</em>, int64_t <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op5slice9fix_indexERKNSt6vectorINSt6size_tEEENSt6size_tE7int64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op5slice14compute_offsetERK5shape">
+<span id="migraphx::op::slice::compute_offset__shapeCRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1af90cc0f66b6f380d6eb8e546a867c723"></span>auto <code class="descname">compute_offset</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>s</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op5slice14compute_offsetERK5shape" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op5slice13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::slice::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1af7ffc589fc40e48341e74ff0ab4045e2"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op5slice13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op5slice7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::slice::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1af4caeef645d33645a2139fc153721553"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op5slice7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op5slice12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::slice::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1ac3b8ea448375a7e2e85294409380d3f1"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op5slice12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op5slice4axesE">
+<span id="migraphx::op::slice::axes__std::vector:int64_t:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1ab1b92102afee85d7f0fb4cad36800ec6"></span>std::vector&lt;int64_t&gt; <code class="descname">axes</code><a class="headerlink" href="#_CPPv2N8migraphx2op5slice4axesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op5slice6startsE">
+<span id="migraphx::op::slice::starts__std::vector:int64_t:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1a7d5411a3c712de62d21365f11e994fa4"></span>std::vector&lt;int64_t&gt; <code class="descname">starts</code><a class="headerlink" href="#_CPPv2N8migraphx2op5slice6startsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op5slice4endsE">
+<span id="migraphx::op::slice::ends__std::vector:int64_t:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1ab2c2470727274193d9ba293c42daeb46"></span>std::vector&lt;int64_t&gt; <code class="descname">ends</code><a class="headerlink" href="#_CPPv2N8migraphx2op5slice4endsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op5slice7reflectER4Self1F">
+<span id="migraphx::op::slice::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1slice_1a9ab475a823fdb47a11193b3a61a1b007"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op5slice7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op7softmaxE">
+<span id="migraphx::op::softmax"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1softmax"></span><em class="property">struct </em><code class="descname">softmax</code><a class="headerlink" href="#_CPPv2N8migraphx2op7softmaxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7softmax4nameEv">
+<span id="migraphx::op::softmax::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1softmax_1ac1471afa736cf3d51f2d73ec31aae962"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7softmax4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7softmax13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::softmax::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1softmax_1acb7b1f923982f140ba164c674f458b21"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7softmax13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op7squeezeE">
+<span id="migraphx::op::squeeze"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1squeeze"></span><em class="property">struct </em><code class="descname">squeeze</code><a class="headerlink" href="#_CPPv2N8migraphx2op7squeezeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7squeeze4nameEv">
+<span id="migraphx::op::squeeze::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1squeeze_1a6c81bd5fcb601d3725474cf7c71f90ef"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7squeeze4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7squeeze13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::squeeze::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1squeeze_1a8f749cc2abbfa534b03073b8a3cb969f"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7squeeze13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7squeeze7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::squeeze::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1squeeze_1ac55568bb118d2df5a5b34071c0590655"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7squeeze7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op7squeeze12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::squeeze::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1squeeze_1a535fc000685c1b1cff018c5ba80151f4"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op7squeeze12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op7squeeze4axesE">
+<span id="migraphx::op::squeeze::axes__std::vector:int64_t:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1squeeze_1a4962f960a81875eb0b99c3b00d2580aa"></span>std::vector&lt;int64_t&gt; <code class="descname">axes</code><a class="headerlink" href="#_CPPv2N8migraphx2op7squeeze4axesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op7squeeze7reflectER4Self1F">
+<span id="migraphx::op::squeeze::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1squeeze_1a2ff48c42c104a7cca554367aa6778af1"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op7squeeze7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3subE">
+<span id="migraphx::op::sub"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sub"></span><em class="property">struct </em><code class="descname">sub</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op6binaryE" title="migraphx::op::binary">binary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3subE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3sub4nameEv">
+<span id="migraphx::op::sub::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sub_1a332d91a3df378f89bd2c21e8acbea8bb"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3sub4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op3tanE">
+<span id="migraphx::op::tan"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1tan"></span><em class="property">struct </em><code class="descname">tan</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op3tanE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op3tan4nameEv">
+<span id="migraphx::op::tan::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1tan_1a3ea3e9e930128e0daf573d484c77aced"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op3tan4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op4tanhE">
+<span id="migraphx::op::tanh"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1tanh"></span><em class="property">struct </em><code class="descname">tanh</code> : <em class="property">public</em> <a class="reference internal" href="#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx2opE" title="migraphx::op">op</a>::<a class="reference internal" href="#_CPPv2N8migraphx2op5unaryE" title="migraphx::op::unary">unary</a><a class="headerlink" href="#_CPPv2N8migraphx2op4tanhE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op4tanh4nameEv">
+<span id="migraphx::op::tanh::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1tanh_1a2a2b70c0893bfc09564aa621878e609a"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op4tanh4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op9transposeE">
+<span id="migraphx::op::transpose"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1transpose"></span><em class="property">struct </em><code class="descname">transpose</code><a class="headerlink" href="#_CPPv2N8migraphx2op9transposeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9transpose4nameEv">
+<span id="migraphx::op::transpose::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1transpose_1a8b03d0c6a232e0fdddd56e5a175f1bdd"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9transpose4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9transpose13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::transpose::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1transpose_1af6b229f4369dd5915262f3a5fd7b94c8"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9transpose13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9transpose7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::transpose::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1transpose_1a0120d769ec889236e8c23acdd0b45089"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9transpose7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9transpose12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::transpose::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1transpose_1a4ddeb405f29dfc46218ffe0565245ba3"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9transpose12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op9transpose4dimsE">
+<span id="migraphx::op::transpose::dims__std::vector:int64_t:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1transpose_1ae1df1eb8c299a37676f63b7353fb28ec"></span>std::vector&lt;int64_t&gt; <code class="descname">dims</code><a class="headerlink" href="#_CPPv2N8migraphx2op9transpose4dimsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op9transpose7reflectER4Self1F">
+<span id="migraphx::op::transpose::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1transpose_1aad799299a5a94583d14cb0fb0cc8e7ea"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op9transpose7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op5unaryE">
+<span id="migraphx::op::unary"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unary"></span><em class="property">struct </em><code class="descname">unary</code><a class="headerlink" href="#_CPPv2N8migraphx2op5unaryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><p>Subclassed by <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1abs"><span class="std std-ref">migraphx::op::abs</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1acos"><span class="std std-ref">migraphx::op::acos</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1asin"><span class="std std-ref">migraphx::op::asin</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1atan"><span class="std std-ref">migraphx::op::atan</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1cos"><span class="std std-ref">migraphx::op::cos</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1exp"><span class="std std-ref">migraphx::op::exp</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1neg"><span class="std std-ref">migraphx::op::neg</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1relu"><span class="std std-ref">migraphx::op::relu</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sigmoid"><span class="std std-ref">migraphx::op::sigmoid</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1sin"><span class="std std-ref">migraphx::op::sin</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1tan"><span class="std std-ref">migraphx::op::tan</span></a>, <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1tanh"><span class="std std-ref">migraphx::op::tanh</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op5unary13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::unary::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unary_1ab508c213c56c14a28ec104fa332afa07"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op5unary13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N8migraphx2op9unsqueezeE">
+<span id="migraphx::op::unsqueeze"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unsqueeze"></span><em class="property">struct </em><code class="descname">unsqueeze</code><a class="headerlink" href="#_CPPv2N8migraphx2op9unsqueezeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;operators.hpp&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9unsqueeze4nameEv">
+<span id="migraphx::op::unsqueeze::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unsqueeze_1a0c2734b7458359ad58df13012427bc60"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9unsqueeze4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9unsqueeze13compute_shapeENSt6vectorI5shapeEE">
+<span id="migraphx::op::unsqueeze::compute_shape__std::vector:shape:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unsqueeze_1a40ad29d908c630818bf46b814bbe27dd"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <code class="descname">compute_shape</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt; <em>inputs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9unsqueeze13compute_shapeENSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9unsqueeze7computeER7context5shapeNSt6vectorI8argumentEE">
+<span id="migraphx::op::unsqueeze::compute__contextR.shape.std::vector:argument:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unsqueeze_1a5cd0caf443c72782cbc34d988d4a1113"></span><a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">compute</code><span class="sig-paren">(</span>context&amp;, <a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>output_shape</em>, std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt; <em>args</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9unsqueeze7computeER7context5shapeNSt6vectorI8argumentEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx2op9unsqueeze12output_aliasERKNSt6vectorI5shapeEE">
+<span id="migraphx::op::unsqueeze::output_alias__std::vector:shape:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unsqueeze_1a5843577b5b304c9f53a0a7e7f8511656"></span>int <code class="descname">output_alias</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="data.html#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx2op9unsqueeze12output_aliasERKNSt6vectorI5shapeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx2op9unsqueeze4axesE">
+<span id="migraphx::op::unsqueeze::axes__std::vector:int64_t:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unsqueeze_1a8fc6ac7638e54b55f7d6bb6cab280ab6"></span>std::vector&lt;int64_t&gt; <code class="descname">axes</code><a class="headerlink" href="#_CPPv2N8migraphx2op9unsqueeze4axesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx2op9unsqueeze7reflectER4Self1F">
+<span id="migraphx::op::unsqueeze::reflect__SelfR.F"></span><em class="property">template </em>&lt;<em class="property">class</em> Self, <em class="property">class</em> F&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1op_1_1unsqueeze_1a50b2d7511a57b3d835b4c28eaa53613a"></span><em class="property">static</em> auto <code class="descname">reflect</code><span class="sig-paren">(</span>Self &amp;<em>self</em>, F <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx2op9unsqueeze7reflectER4Self1F" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Operators</a><ul>
+<li><a class="reference internal" href="#operation">operation</a></li>
+<li><a class="reference internal" href="#id1">operators</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../user_guide.html">User Guide</a><ul>
+      <li>Previous: <a href="data.html" title="previous chapter">Data types</a></li>
+      <li>Next: <a href="program.html" title="next chapter">Program</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/operators.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, AMD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/reference/operators.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

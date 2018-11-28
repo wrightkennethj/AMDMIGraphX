@@ -1,0 +1,216 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Targets &#8212; MIGraphX 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Passes" href="pass.html" />
+    <link rel="prev" title="Program" href="program.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="targets">
+<h1>Targets<a class="headerlink" href="#targets" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="target">
+<h2>target<a class="headerlink" href="#target" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx6targetE">
+<span id="migraphx::target"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1target"></span><em class="property">struct </em><code class="descname">target</code><a class="headerlink" href="#_CPPv2N8migraphx6targetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An interface for a compilation target. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx6target4nameEv">
+<span id="migraphx::target::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1target_1aadfaa9fa462308a4fcf7b6fd02aa4e62"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx6target4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A unique name used to identify the target. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx6target10get_passesER7context">
+<span id="migraphx::target::get_passes__contextRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1target_1a9de5bd20a5ee6d210618770a3fe5349c"></span>std::vector&lt;<a class="reference internal" href="pass.html#_CPPv2N8migraphx4passE" title="migraphx::pass">pass</a>&gt; <code class="descname">get_passes</code><span class="sig-paren">(</span>context &amp;<em>ctx</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx6target10get_passesER7context" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The transformation passes to be run. </p>
+<p>The transformation pass to be run during compilation.</p>
+<p>[long description]</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The passes to be ran </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ctx</span></code>: This is the target-dependent context that is created by <code class="docutils literal"><span class="pre">get_context</span></code> </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx6target11get_contextEv">
+<span id="migraphx::target::get_contextC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1target_1ad5541c2f69b974610ac66b584bdc1182"></span>context <code class="descname">get_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx6target11get_contextEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct a context for the target. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The context to be used during compilation and execution. </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="gpu-target">
+<h2>gpu::target<a class="headerlink" href="#gpu-target" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx3gpu6targetE">
+<span id="migraphx::gpu::target"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1gpu_1_1target"></span><em class="property">struct </em><code class="descname">target</code><a class="headerlink" href="#_CPPv2N8migraphx3gpu6targetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx3gpu6target4nameEv">
+<span id="migraphx::gpu::target::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1gpu_1_1target_1a75dedbb5602ca88d8e0f62cf6b1862ef"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx3gpu6target4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx3gpu6target10get_passesERN8migraphx7contextE">
+<span id="migraphx::gpu::target::get_passes__migraphx::contextRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1gpu_1_1target_1a1ae74d702e00621bb870f48ec5dd2da4"></span>std::vector&lt;<a class="reference internal" href="pass.html#_CPPv2N8migraphx4passE" title="migraphx::pass">pass</a>&gt; <code class="descname">get_passes</code><span class="sig-paren">(</span><a class="reference internal" href="operators.html#_CPPv28migraphx" title="migraphx">migraphx</a>::context &amp;<em>gctx</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx3gpu6target10get_passesERN8migraphx7contextE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx3gpu6target11get_contextEv">
+<span id="migraphx::gpu::target::get_contextC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1gpu_1_1target_1ae50d81db079159d87a1410f7ce5b979e"></span><a class="reference internal" href="operators.html#_CPPv28migraphx" title="migraphx">migraphx</a>::context <code class="descname">get_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx3gpu6target11get_contextEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="cpu-target">
+<h2>cpu::target<a class="headerlink" href="#cpu-target" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx3cpu6targetE">
+<span id="migraphx::cpu::target"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1cpu_1_1target"></span><em class="property">struct </em><code class="descname">target</code><a class="headerlink" href="#_CPPv2N8migraphx3cpu6targetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx3cpu6target4nameEv">
+<span id="migraphx::cpu::target::nameC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1cpu_1_1target_1a3aee40ebae94a5ec74aab4b5a7e8004a"></span>std::string <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx3cpu6target4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx3cpu6target10get_passesERN8migraphx7contextE">
+<span id="migraphx::cpu::target::get_passes__migraphx::contextRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1cpu_1_1target_1ad191a3e5719b5f269e261e441fb34fd6"></span>std::vector&lt;<a class="reference internal" href="pass.html#_CPPv2N8migraphx4passE" title="migraphx::pass">pass</a>&gt; <code class="descname">get_passes</code><span class="sig-paren">(</span><a class="reference internal" href="operators.html#_CPPv28migraphx" title="migraphx">migraphx</a>::context &amp;<em>ctx</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx3cpu6target10get_passesERN8migraphx7contextE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx3cpu6target11get_contextEv">
+<span id="migraphx::cpu::target::get_contextC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1cpu_1_1target_1a21a6c52eb06fc915cf65ec53dd0377d4"></span><a class="reference internal" href="operators.html#_CPPv28migraphx" title="migraphx">migraphx</a>::context <code class="descname">get_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx3cpu6target11get_contextEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Targets</a><ul>
+<li><a class="reference internal" href="#target">target</a></li>
+<li><a class="reference internal" href="#gpu-target">gpu::target</a></li>
+<li><a class="reference internal" href="#cpu-target">cpu::target</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../user_guide.html">User Guide</a><ul>
+      <li>Previous: <a href="program.html" title="previous chapter">Program</a></li>
+      <li>Next: <a href="pass.html" title="next chapter">Passes</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/targets.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, AMD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/reference/targets.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

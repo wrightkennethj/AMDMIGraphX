@@ -1,0 +1,781 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data types &#8212; MIGraphX 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Operators" href="operators.html" />
+    <link rel="prev" title="Overview" href="../overview.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="data-types">
+<h1>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="shape">
+<h2>shape<a class="headerlink" href="#shape" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx5shapeE">
+<span id="migraphx::shape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape"></span><em class="property">struct </em><code class="descname">shape</code><a class="headerlink" href="#_CPPv2N8migraphx5shapeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2N8migraphx5shape6type_tE">
+<span id="migraphx::shape::type_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2d"></span><em class="property">enum </em><code class="descname">type_t</code><a class="headerlink" href="#_CPPv2N8migraphx5shape6type_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape9half_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2daa9e4f4509cd1662a007034f3eb5b685b"></span><code class="descname">half_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape9half_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape10float_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2da8421b9bfc8f6d3cdc53bd03fe33b8d0c"></span><code class="descname">float_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape10float_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape11double_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2da0f97285b28dcd0d2c84d094f815d8f3a"></span><code class="descname">double_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape11double_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape10uint8_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2da00d8f11f3c4bff6f785528ed7671a6d1"></span><code class="descname">uint8_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape10uint8_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape9int8_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2dad1a557de7e0aff71200c0fe842356b58"></span><code class="descname">int8_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape9int8_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape11uint16_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2da5aa1ad6d7e0d5acd83f32b4bc7c124aa"></span><code class="descname">uint16_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape11uint16_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape10int16_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2da86ed36a8ceb93d4e716160f41250ee57"></span><code class="descname">int16_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape10int16_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape10int32_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2da21c130f155d8cca6dbe43ed8ef2227c1"></span><code class="descname">int32_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape10int32_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape10int64_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2da1b33471749b7ccd735c7986dcdfa6382"></span><code class="descname">int64_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape10int64_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape11uint32_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2da4ee73c107015f93b6a4cf32569311ff7"></span><code class="descname">uint32_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape11uint32_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N8migraphx5shape11uint64_typeE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a46b8f1a842d84c20daff0ac304f4cf2dabbdc73ca95668ba82bba2a186466ab17"></span><code class="descname">uint64_type</code><a class="headerlink" href="#_CPPv2N8migraphx5shape11uint64_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx5shape5shapeEv">
+<span id="migraphx::shape::shape"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a373c3b1293e169f67d530e6fc1e4c165"></span><code class="descname">shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx5shape5shapeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx5shape5shapeE6type_t">
+<span id="migraphx::shape::shape__type_t"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a517d0d298ed3f34775416603c3f7e18d"></span><code class="descname">shape</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx5shape6type_tE" title="migraphx::shape::type_t">type_t</a> <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx5shape5shapeE6type_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx5shape5shapeE6type_tNSt6vectorINSt6size_tEEE">
+<span id="migraphx::shape::shape__type_t.std::vector:std::s:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a7067d7f97c106e80527ab1c1de106a0c"></span><code class="descname">shape</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx5shape6type_tE" title="migraphx::shape::type_t">type_t</a> <em>t</em>, std::vector&lt;std::size_t&gt; <em>l</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx5shape5shapeE6type_tNSt6vectorINSt6size_tEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx5shape5shapeE6type_tNSt6vectorINSt6size_tEEENSt6vectorINSt6size_tEEE">
+<span id="migraphx::shape::shape__type_t.std::vector:std::s:.std::vector:std::s:"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1ab2029c8a7b54d3be6cd3bb73fee55424"></span><code class="descname">shape</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx5shape6type_tE" title="migraphx::shape::type_t">type_t</a> <em>t</em>, std::vector&lt;std::size_t&gt; <em>l</em>, std::vector&lt;std::size_t&gt; <em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx5shape5shapeE6type_tNSt6vectorINSt6size_tEEENSt6vectorINSt6size_tEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape4typeEv">
+<span id="migraphx::shape::typeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a52999910bc9c957a866b20d5324e0041"></span><a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a>::<a class="reference internal" href="#_CPPv2N8migraphx5shape6type_tE" title="migraphx::shape::type_t">type_t</a> <code class="descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape4typeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape4lensEv">
+<span id="migraphx::shape::lensC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a71b4842e71c0a2312f889f4226cd34a1"></span><em class="property">const</em> std::vector&lt;std::size_t&gt; &amp;<code class="descname">lens</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape4lensEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape7stridesEv">
+<span id="migraphx::shape::stridesC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1ae2d45872e4683794466efe3a75989486"></span><em class="property">const</em> std::vector&lt;std::size_t&gt; &amp;<code class="descname">strides</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape7stridesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape8elementsEv">
+<span id="migraphx::shape::elementsC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a35cb01df1d8d2093c27073df56f91250"></span>std::size_t <code class="descname">elements</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape8elementsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape5bytesEv">
+<span id="migraphx::shape::bytesC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a4ef3203c7d45b54341b4ab544c4849ba"></span>std::size_t <code class="descname">bytes</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape5bytesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape9type_sizeEv">
+<span id="migraphx::shape::type_sizeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a19299416596288d9eda75226081c6763"></span>std::size_t <code class="descname">type_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape9type_sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape5indexENSt16initializer_listINSt6size_tEEE">
+<span id="migraphx::shape::index__std::initializer_list:std::s:C"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1abca94d8fcae23ee8c0234ee7ceb7c0ef"></span>std::size_t <code class="descname">index</code><span class="sig-paren">(</span>std::initializer_list&lt;std::size_t&gt; <em>l</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape5indexENSt16initializer_listINSt6size_tEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map multiple indices to space index. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape5indexERKNSt6vectorINSt6size_tEEE">
+<span id="migraphx::shape::index__std::vector:std::s:CRC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a551740330370b9686dc2e95f72107a69"></span>std::size_t <code class="descname">index</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;std::size_t&gt; &amp;<em>l</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape5indexERKNSt6vectorINSt6size_tEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map multiple indices to space index. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape5indexE8Iterator8Iterator">
+<span id="migraphx::shape::index__Iterator.IteratorC"></span><em class="property">template </em>&lt;<em class="property">class</em> Iterator&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a8ef1bb37beca698df55a2672ea9e720f"></span>std::size_t <code class="descname">index</code><span class="sig-paren">(</span>Iterator <em>start</em>, Iterator <em>last</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape5indexE8Iterator8Iterator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map multiple indices from a range of iterator to a space index. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape5indexENSt6size_tE">
+<span id="migraphx::shape::index__std::sC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1aec983e5f8be12e3368e19a4d8dde9443"></span>std::size_t <code class="descname">index</code><span class="sig-paren">(</span>std::size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape5indexENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map element index to space index. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape6packedEv">
+<span id="migraphx::shape::packedC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a11099161e3a74c8799d06a3baff52337"></span>bool <code class="descname">packed</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape6packedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if the shape is packed with no padding. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape10transposedEv">
+<span id="migraphx::shape::transposedC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a4a3cbdcc0a5092669d0a51af26b41452"></span>bool <code class="descname">transposed</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape10transposedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true is the shape has been transposed. That is the strides are not in descending order </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape11broadcastedEv">
+<span id="migraphx::shape::broadcastedC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1aa965cd5acd19db6ea4478c7e88584b10"></span>bool <code class="descname">broadcasted</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape11broadcastedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if the shape is broadcasting a dimension. That is, one of the strides are zero. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape8standardEv">
+<span id="migraphx::shape::standardC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1abe0d64887ffd87c09b196bda006b253f"></span>bool <code class="descname">standard</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape8standardEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if the shape is in its standard format. That is, the shape is both packed and not transposed. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape6scalarEv">
+<span id="migraphx::shape::scalarC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a6e67bf9c164294b9555b95d95bf315ee"></span>bool <code class="descname">scalar</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape6scalarEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if all strides are equal to 0 (scalar tensor) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape10visit_typeE7Visitor">
+<span id="migraphx::shape::visit_type__VisitorC"></span><em class="property">template </em>&lt;<em class="property">class</em> Visitor&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a8782af63f76394ef8cd00d268f347288"></span>void <code class="descname">visit_type</code><span class="sig-paren">(</span>Visitor <em>v</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape10visit_typeE7Visitor" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv2eqRK5shapeRK5shape">
+<span id="eq-operator__shapeCR.shapeCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a08001f225a442901e3c78788f4ca9e58"></span>bool <code class="descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> shape &amp;<em>x</em>, <em class="property">const</em> shape &amp;<em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2eqRK5shapeRK5shape" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2neRK5shapeRK5shape">
+<span id="neq-operator__shapeCR.shapeCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1ac015e6ec51591618b4bfc05f85d23a59"></span>bool <code class="descname">operator!=</code><span class="sig-paren">(</span><em class="property">const</em> shape &amp;<em>x</em>, <em class="property">const</em> shape &amp;<em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2neRK5shapeRK5shape" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2lsRNSt7ostreamERK5shape">
+<span id="lshift-operator__osR.shapeCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1a33c7e8783184fa1964f8c681a13a6fdf"></span>std::ostream &amp;<code class="descname">operator&lt;&lt;</code><span class="sig-paren">(</span>std::ostream &amp;<em>os</em>, <em class="property">const</em> shape &amp;<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2lsRNSt7ostreamERK5shape" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv2N8migraphx5shape2asE">
+<span id="migraphx::shape::as"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as"></span><em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><em class="property">struct </em><code class="descname">as</code><a class="headerlink" href="#_CPPv2N8migraphx5shape2asE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2IEN8migraphx5shape2asI1TE4typeE">
+template&lt;&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as_1abe3e2803c7bfdeb685b621eb5a02542e"></span><em class="property">using </em><code class="descname">type</code> = T<a class="headerlink" href="#_CPPv2IEN8migraphx5shape2asI1TE4typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape2asclE1U">
+<span id="migraphx::shape::as::call-operator__UC"></span><em class="property">template </em>&lt;<em class="property">class</em> U&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as_1a5df45aaaa691aa0b3b48f4bd546622ca"></span>T <code class="descname">operator()</code><span class="sig-paren">(</span>U <em>u</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape2asclE1U" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape2asclEP1U">
+<span id="migraphx::shape::as::call-operator__UPC"></span><em class="property">template </em>&lt;<em class="property">class</em> U&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as_1a4b91e09e95279d2224679d86ad1a72ad"></span>T *<code class="descname">operator()</code><span class="sig-paren">(</span>U *<em>u</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape2asclEP1U" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape2asclEPK1U">
+<span id="migraphx::shape::as::call-operator__UCPC"></span><em class="property">template </em>&lt;<em class="property">class</em> U&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as_1a144e2869f5092e36d0e12cf3a2215b0e"></span><em class="property">const</em> T *<code class="descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> U *<em>u</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape2asclEPK1U" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape2asclEv">
+<span id="migraphx::shape::as::call-operatorC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as_1ab264d198fb37ad8a8019a485f56b7bee"></span>T <code class="descname">operator()</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape2asclEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape2as4sizeENSt6size_tE">
+<span id="migraphx::shape::as::size__std::sC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as_1afdfe661aaa3fcefbf43b898737ddc2ea"></span>std::size_t <code class="descname">size</code><span class="sig-paren">(</span>std::size_t <em>n</em> = 1<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape2as4sizeENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape2as4fromEP1UNSt6size_tE">
+<span id="migraphx::shape::as::from__UP.std::sC"></span><em class="property">template </em>&lt;<em class="property">class</em> U&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as_1aa7c9b4596b78c04defb289df46a94098"></span>T *<code class="descname">from</code><span class="sig-paren">(</span>U *<em>buffer</em>, std::size_t <em>n</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape2as4fromEP1UNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx5shape2as4fromEPK1UNSt6size_tE">
+<span id="migraphx::shape::as::from__UCP.std::sC"></span><em class="property">template </em>&lt;<em class="property">class</em> U&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1shape_1_1as_1a7d3fc2a83c2b7fe4a480f955e9136a7d"></span><em class="property">const</em> T *<code class="descname">from</code><span class="sig-paren">(</span><em class="property">const</em> U *<em>buffer</em>, std::size_t <em>n</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx5shape2as4fromEPK1UNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="literal">
+<h2>literal<a class="headerlink" href="#literal" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx7literalE">
+<span id="migraphx::literal"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal"></span><em class="property">struct </em><code class="descname">literal</code> : <em class="property">public</em> <a class="reference internal" href="operators.html#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx8raw_dataE" title="migraphx::raw_data">raw_data</a>&lt;<a class="reference internal" href="#_CPPv2N8migraphx7literalE" title="migraphx::literal">literal</a>&gt;<a class="headerlink" href="#_CPPv2N8migraphx7literalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Represents a raw literal. </p>
+<p>This stores the literal has a raw buffer that is owned by this class </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx7literal7literalEv">
+<span id="migraphx::literal::literal"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1afdb0d14ef3a9938542e8b8f25fdf07a0"></span><code class="descname">literal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7literal7literalEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7literal7literalE1U">
+<span id="migraphx::literal::literal__U"></span><em class="property">template </em>&lt;<em class="property">class</em> U, <em class="property">class</em> T = deduce&lt;U&gt;&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1a6a95e9ca20eb7a693ed3b140615c4a7c"></span><code class="descname">literal</code><span class="sig-paren">(</span>U <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7literal7literalE1U" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7literal7literalERK5shapeRKNSt6vectorI1TEE">
+<span id="migraphx::literal::literal__shapeCR.std::vector:T:CR"></span><em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1a1ee98d0728dbb3ef14351735e7c822df"></span><code class="descname">literal</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>s</em>, <em class="property">const</em> std::vector&lt;T&gt; &amp;<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7literal7literalERK5shapeRKNSt6vectorI1TEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7literal7literalERK5shapeRKNSt16initializer_listI1TEE">
+<span id="migraphx::literal::literal__shapeCR.std::initializer_list:T:CR"></span><em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1ab4c5a61f0ed0b53547f9d93d296ceed5"></span><code class="descname">literal</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>s</em>, <em class="property">const</em> std::initializer_list&lt;T&gt; &amp;<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7literal7literalERK5shapeRKNSt16initializer_listI1TEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7literal7literalERK5shape8Iterator8Iterator">
+<span id="migraphx::literal::literal__shapeCR.Iterator.Iterator"></span><em class="property">template </em>&lt;<em class="property">class</em> Iterator&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1ac3542763ece0f1360a32f2e3d00ed811"></span><code class="descname">literal</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>s</em>, Iterator <em>start</em>, Iterator <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7literal7literalERK5shape8Iterator8Iterator" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx7literal7literalERK5shapePKc">
+<span id="migraphx::literal::literal__shapeCR.cCP"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1abc4ba8c8feeb6e1320358f118cba86ca"></span><code class="descname">literal</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>s</em>, <em class="property">const</em> char *<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx7literal7literalERK5shapePKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7literal5emptyEv">
+<span id="migraphx::literal::emptyC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1ade5af4257ce311cae43ab93efc69d9a0"></span>bool <code class="descname">empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7literal5emptyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether data is available. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7literal4dataEv">
+<span id="migraphx::literal::dataC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1a3e20b202c1b3be12c2601f6f952bb448"></span><em class="property">const</em> char *<code class="descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7literal4dataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provides a raw pointer to the data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7literal9get_shapeEv">
+<span id="migraphx::literal::get_shapeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1a294d76159c99b14c293154be6ee211c8"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<code class="descname">get_shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7literal9get_shapeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx7literal12get_argumentEv">
+<span id="migraphx::literal::get_argumentC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1literal_1a7838587d25a0c8c2ed139e1578b54058"></span><a class="reference internal" href="#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a> <code class="descname">get_argument</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx7literal12get_argumentEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert the data to an argument. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="argument">
+<h2>argument<a class="headerlink" href="#argument" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx8argumentE">
+<span id="migraphx::argument"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1argument"></span><em class="property">struct </em><code class="descname">argument</code> : <em class="property">public</em> <a class="reference internal" href="operators.html#_CPPv28migraphx" title="migraphx">migraphx</a>::<a class="reference internal" href="#_CPPv2N8migraphx8raw_dataE" title="migraphx::raw_data">raw_data</a>&lt;<a class="reference internal" href="#_CPPv2N8migraphx8argumentE" title="migraphx::argument">argument</a>&gt;<a class="headerlink" href="#_CPPv2N8migraphx8argumentE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Arguments passed to instructions. </p>
+<p>An <code class="docutils literal"><span class="pre">argument</span></code> can represent a raw buffer of data that either be referenced from another element or it can be owned by the argument. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx8argument8argumentEv">
+<span id="migraphx::argument::argument"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1argument_1a00baca517f8cff69fff84ca4e9711e07"></span><code class="descname">argument</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx8argument8argumentEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx8argument8argumentERK5shape">
+<span id="migraphx::argument::argument__shapeCR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1argument_1a5c7175f47c6fc4ded5cec026e66c533f"></span><code class="descname">argument</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx8argument8argumentERK5shape" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx8argument8argumentE5shapeNSt8functionIFPcvEEE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1argument_1a7468a143c2b4a81ad6f2c28dcf980e7e"></span><code class="descname">argument</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>s</em>, std::function&lt;char *<span class="sig-paren">(</span><span class="sig-paren">)</span>&gt; <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx8argument8argumentE5shapeNSt8functionIFPcvEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx8argument8argumentE5shapeP1T">
+<span id="migraphx::argument::argument__shape.TP"></span><em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1argument_1a880686d1f578ac97c1c5bc682a45f6e8"></span><code class="descname">argument</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>s</em>, T *<em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx8argument8argumentE5shapeP1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8argument5emptyEv">
+<span id="migraphx::argument::emptyC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1argument_1a30df47b7a69b22029fdd2c5620aaf0dc"></span>bool <code class="descname">empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8argument5emptyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether data is available. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8argument9get_shapeEv">
+<span id="migraphx::argument::get_shapeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1argument_1a2576439c1111c4f3874669ea462c6290"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<code class="descname">get_shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8argument9get_shapeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8migraphx8argument4dataE">
+<span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1argument_1a5c57ab676114e306370efc537b52d007"></span>std::function&lt;char *<span class="sig-paren">(</span><span class="sig-paren">)</span>&gt; <code class="descname">data</code><a class="headerlink" href="#_CPPv2N8migraphx8argument4dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provides a raw pointer to the data. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="raw-data">
+<h2>raw_data<a class="headerlink" href="#raw-data" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx8raw_dataE">
+<span id="migraphx::raw_data"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data"></span><em class="property">template </em>&lt;class <em>Derived</em>&gt;<br /><em class="property">struct </em><code class="descname">raw_data</code> : <em class="property">public</em> <a class="reference internal" href="operators.html#_CPPv28migraphx" title="migraphx">migraphx</a>::raw_data_base<a class="headerlink" href="#_CPPv2N8migraphx8raw_dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provides a base class for common operations with raw buffer. </p>
+<p>For classes that handle a raw buffer of data, this will provide common operations such as equals, printing, and visitors. To use this class the derived class needs to provide a <code class="docutils literal"><span class="pre">data()</span></code> method to retrieve a raw pointer to the data, and <code class="docutils literal"><span class="pre">get_shape</span></code> method that provides the shape of the data. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8raw_data8visit_atE7VisitorNSt6size_tE">
+<span id="migraphx::raw_data::visit_at__Visitor.std::sC"></span><em class="property">template </em>&lt;<em class="property">class</em> Visitor&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1af2ba1dd1d4fcfe392ec1e165ee3e7510"></span>void <code class="descname">visit_at</code><span class="sig-paren">(</span>Visitor <em>v</em>, std::size_t <em>n</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8raw_data8visit_atE7VisitorNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Visits a single data element at a certain index. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">v</span></code>: A function which will be called with the type of data </li>
+<li><code class="docutils literal"><span class="pre">n</span></code>: The index to read from </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8raw_data5visitE7Visitor">
+<span id="migraphx::raw_data::visit__VisitorC"></span><em class="property">template </em>&lt;<em class="property">class</em> Visitor&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1a9515b3269cfb93b22d8e356e8f048f85"></span>void <code class="descname">visit</code><span class="sig-paren">(</span>Visitor <em>v</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8raw_data5visitE7Visitor" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Visits the data. </p>
+<p>This will call the visitor function with a <code class="docutils literal"><a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view"><span class="std std-ref"><span class="pre">tensor_view</span></span></a><span class="pre">&lt;T&gt;</span></code> based on the shape of the data.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">v</span></code>: A function to be called with <code class="docutils literal"><a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view"><span class="std std-ref"><span class="pre">tensor_view</span></span></a><span class="pre">&lt;T&gt;</span></code> </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8raw_data6singleEv">
+<span id="migraphx::raw_data::singleC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1aa785d61079747b85e75ba8eafa186e1b"></span>bool <code class="descname">single</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8raw_data6singleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if the raw data is only one element. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8raw_data2atENSt6size_tE">
+<span id="migraphx::raw_data::at__std::sC"></span><em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1a16208c036e0b45cbf2c4c2bded698067"></span>T <code class="descname">at</code><span class="sig-paren">(</span>std::size_t <em>n</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8raw_data2atENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieves a single element of data. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The element as <code class="docutils literal"><span class="pre">T</span></code> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">n</span></code>: The index to retrieve the data from </li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">T</span></code>: The type of data to be retrieved </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8raw_data8implicitEv">
+<span id="migraphx::raw_data::implicitC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1a016ec88d8f21daae9c4c8a13d5b46864"></span><a class="reference internal" href="#_CPPv2N8migraphx8raw_data9auto_castE" title="migraphx::raw_data::auto_cast">auto_cast</a> <code class="descname">implicit</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8raw_data8implicitEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Implicit conversion of raw data pointer. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8raw_data3getEv">
+<span id="migraphx::raw_data::getC"></span><em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1ac5cc965b045ff42b151e3013f3f83a22"></span><a class="reference internal" href="#_CPPv2N8migraphx11tensor_viewE" title="migraphx::tensor_view">tensor_view</a>&lt;T&gt; <code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8raw_data3getEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a <a class="reference internal" href="#structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view"><span class="std std-ref">tensor_view</span></a> to the data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx8raw_data4castEv">
+<span id="migraphx::raw_data::castC"></span><em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1a50bda5b38d259f15170afa9e41a05e66"></span>T *<code class="descname">cast</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx8raw_data4castEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Cast the data pointer. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv2lsR6StreamRK7Derived">
+<span id="lshift-operator__StreamR.DerivedCR"></span><em class="property">template </em>&lt;<em class="property">class</em> Stream&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1a93d7fd171d5386afa5eecfb29f95c449"></span>Stream &amp;<code class="descname">operator&lt;&lt;</code><span class="sig-paren">(</span>Stream &amp;<em>os</em>, <em class="property">const</em> Derived &amp;<em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2lsR6StreamRK7Derived" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv2N8migraphx8raw_data9auto_castE">
+<span id="migraphx::raw_data::auto_cast"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1_1auto__cast"></span><em class="property">struct </em><code class="descname">auto_cast</code><a class="headerlink" href="#_CPPv2N8migraphx8raw_data9auto_castE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_cast11is_data_ptrE">
+template&lt;&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1_1auto__cast_1a5d6937a756a39e8b4fa81cf485bd9bcd"></span><em class="property">using </em><code class="descname">is_data_ptr</code> = bool_c&lt;(std::is_void&lt;T&gt;{} or std::is_same&lt;char, std::remove_cv_t&lt;T&gt; &gt;{} or std::is_same&lt;unsigned char, std::remove_cv_t&lt;T&gt; &gt;{})&gt;<a class="headerlink" href="#_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_cast11is_data_ptrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_cast13get_data_typeE">
+template&lt;&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1_1auto__cast_1abbde8f88ab0cf63d7670a6b47046090b"></span><em class="property">using </em><code class="descname">get_data_type</code> = std::conditional_t&lt;is_data_ptr&lt;T&gt;{}, float, T&gt;<a class="headerlink" href="#_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_cast13get_data_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_castcv1TEv">
+<em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1_1auto__cast_1ad9269cb435ecdf724b1796eb9e18bc01"></span>template&lt;&gt;<br /><code class="descname">operator T</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_castcv1TEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2IENK8migraphx8raw_dataI7DerivedE9auto_cast7matchesEv">
+<em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1_1auto__cast_1a1cde326d73b78555675b7b4d61cce809"></span>template&lt;&gt;<br />bool <code class="descname">matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2IENK8migraphx8raw_dataI7DerivedE9auto_cast7matchesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_castcvP1TEv">
+<em class="property">template </em>&lt;<em class="property">class</em> T&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1_1auto__cast_1ae6079b375193dd9fb77448a627b20cfe"></span>template&lt;&gt;<br /><code class="descname">operator T *</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_castcvP1TEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_cast4selfE">
+template&lt;&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1raw__data_1_1auto__cast_1ac2d1c08a7d141f1d917acf5826f64e46"></span><em class="property">const</em> Derived *<code class="descname">self</code><a class="headerlink" href="#_CPPv2IEN8migraphx8raw_dataI7DerivedE9auto_cast4selfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx9visit_allERR1TDpRR2Ts">
+<span id="migraphx::visit_all__TRR.TsRRDp"></span><em class="property">template </em>&lt;<em class="property">class</em> T, class… <em>Ts</em>&gt;<br /><span class="target" id="namespacemigraphx_1_1MIGRAPHX__INLINE__NS_1a06e59bf9302644d41baf040e2813dcd6"></span>auto <code class="descclassname">migraphx::</code><code class="descname">visit_all</code><span class="sig-paren">(</span>T &amp;&amp;<em>x</em>, Ts&amp;&amp;… <em>xs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx9visit_allERR1TDpRR2Ts" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Visits every object together. </p>
+<p>This will visit every object, but assumes each object is the same type. This can reduce the deeply nested visit calls. This will return a function that will take the visitor callback. So it will be called with <code class="docutils literal"><span class="pre">visit_all(xs...)([](auto...</span> <span class="pre">ys)</span> <span class="pre">{})</span></code> where <code class="docutils literal"><span class="pre">xs...</span></code> and <code class="docutils literal"><span class="pre">ys...</span></code> are the same number of parameters.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A function to be called with the visitor </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">x</span></code>: A raw data object </li>
+<li><code class="docutils literal"><span class="pre">xs</span></code>: Many raw data objects </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="tensor-view">
+<h2>tensor_view<a class="headerlink" href="#tensor-view" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N8migraphx11tensor_viewE">
+<span id="migraphx::tensor_view"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view"></span><em class="property">template </em>&lt;class <em>T</em>&gt;<br /><em class="property">struct </em><code class="descname">tensor_view</code><a class="headerlink" href="#_CPPv2N8migraphx11tensor_viewE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2IEN8migraphx11tensor_viewI1TE10value_typeE">
+template&lt;&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a1ac562c554bedea69f6c62a85fdee81a"></span><em class="property">using </em><code class="descname">value_type</code> = T<a class="headerlink" href="#_CPPv2IEN8migraphx11tensor_viewI1TE10value_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_view11tensor_viewEv">
+<span id="migraphx::tensor_view::tensor_view"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a89f6ef80821cc09f50e4cf22eef4d859"></span><code class="descname">tensor_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_view11tensor_viewEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_view11tensor_viewE5shapeP1T">
+<span id="migraphx::tensor_view::tensor_view__shape.TP"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a986c1d08a564443bf94942704dbf6eb1"></span><code class="descname">tensor_view</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> <em>s</em>, T *<em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_view11tensor_viewE5shapeP1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_view9get_shapeEv">
+<span id="migraphx::tensor_view::get_shapeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1adc41d9d8e964746858296850419aa406"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N8migraphx5shapeE" title="migraphx::shape">shape</a> &amp;<code class="descname">get_shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_view9get_shapeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_view5emptyEv">
+<span id="migraphx::tensor_view::emptyC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a9ff6cfe5c471768d7a684dc66820911b"></span>bool <code class="descname">empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_view5emptyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_view4sizeEv">
+<span id="migraphx::tensor_view::sizeC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a661bbe370c65f7ab691427b0a81e07cb"></span>std::size_t <code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_view4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_view4dataEv">
+<span id="migraphx::tensor_view::data"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1af11bd59159fd4c62a9a21a43ca78938b"></span>T *<code class="descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_view4dataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_view4dataEv">
+<span id="migraphx::tensor_view::dataC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1af7f8360c506240f625012f0d96ed37c5"></span><em class="property">const</em> T *<code class="descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_view4dataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_viewclEDp2Ts">
+<span id="migraphx::tensor_view::call-operator__TsDpC"></span><em class="property">template </em>&lt;class… <em>Ts</em>, <em class="property">typename</em> migraphx::requires_enum&lt; __LINE__ &gt;::e <em>PrivateRequires__LINE__</em> = migraphx::requires_enum&lt;__LINE__&gt;::a, class = typename std::enable_if&lt;and_&lt; std::is_integral&lt;Ts&gt;{}… &gt;{}&gt;::type&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a10aa7c4afb2443b9d646c3048e52e53a"></span><em class="property">const</em> T &amp;<code class="descname">operator()</code><span class="sig-paren">(</span>Ts… <em>xs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_viewclEDp2Ts" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_viewclEDp2Ts">
+<span id="migraphx::tensor_view::call-operator__TsDp"></span><em class="property">template </em>&lt;class… <em>Ts</em>, <em class="property">typename</em> migraphx::requires_enum&lt; __LINE__ &gt;::e <em>PrivateRequires__LINE__</em> = migraphx::requires_enum&lt;__LINE__&gt;::a, class = typename std::enable_if&lt;and_&lt; std::is_integral&lt;Ts&gt;{}… &gt;{}&gt;::type&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a8407144ee1b4c7d2016a8940af8376bd"></span>T &amp;<code class="descname">operator()</code><span class="sig-paren">(</span>Ts… <em>xs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_viewclEDp2Ts" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_viewclE8Iterator8Iterator">
+<span id="migraphx::tensor_view::call-operator__Iterator.IteratorC"></span><em class="property">template </em>&lt;<em class="property">class</em> Iterator, <em class="property">typename</em> migraphx::requires_enum&lt; __LINE__ &gt;::e <em>PrivateRequires__LINE__</em> = migraphx::requires_enum&lt;__LINE__&gt;::a, class = typename std::enable_if&lt;and_&lt; not std::is_integral&lt;Iterator&gt;{} &gt;{}&gt;::type&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1acfcdffbde8b571c7d86a79079bf14053"></span><em class="property">const</em> T &amp;<code class="descname">operator()</code><span class="sig-paren">(</span>Iterator <em>start</em>, Iterator <em>last</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_viewclE8Iterator8Iterator" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_viewclE8Iterator8Iterator">
+<span id="migraphx::tensor_view::call-operator__Iterator.Iterator"></span><em class="property">template </em>&lt;<em class="property">class</em> Iterator, <em class="property">typename</em> migraphx::requires_enum&lt; __LINE__ &gt;::e <em>PrivateRequires__LINE__</em> = migraphx::requires_enum&lt;__LINE__&gt;::a, class = typename std::enable_if&lt;and_&lt; not std::is_integral&lt;Iterator&gt;{} &gt;{}&gt;::type&gt;<br /><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a085b95499c627e4e75cb755e209a58d0"></span>T &amp;<code class="descname">operator()</code><span class="sig-paren">(</span>Iterator <em>start</em>, Iterator <em>last</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_viewclE8Iterator8Iterator" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_viewixENSt6size_tE">
+<span id="migraphx::tensor_view::subscript-operator__std::s"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a56d6adf73d04db1337dc1946bc7a38c5"></span>T &amp;<code class="descname">operator[]</code><span class="sig-paren">(</span>std::size_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_viewixENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_viewixENSt6size_tE">
+<span id="migraphx::tensor_view::subscript-operator__std::sC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a1acc7404b344a5db50dbd0927acf1e69"></span><em class="property">const</em> T &amp;<code class="descname">operator[]</code><span class="sig-paren">(</span>std::size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_viewixENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_view5frontEv">
+<span id="migraphx::tensor_view::front"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a7ee4b0fd8e180091f6f2e7a10bc99630"></span>T &amp;<code class="descname">front</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_view5frontEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_view5frontEv">
+<span id="migraphx::tensor_view::frontC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a7ba1fc552c0e092e7af76f0f4c4350c9"></span><em class="property">const</em> T &amp;<code class="descname">front</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_view5frontEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_view4backEv">
+<span id="migraphx::tensor_view::back"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a2d229402e280c8690916db98da25496c"></span>T &amp;<code class="descname">back</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_view4backEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_view4backEv">
+<span id="migraphx::tensor_view::backC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a3c71cb505736f2d43de4e2fe0130b807"></span><em class="property">const</em> T &amp;<code class="descname">back</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_view4backEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_view5beginEv">
+<span id="migraphx::tensor_view::begin"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1ab9b0e7d30197472e8f294082e29400f1"></span>T *<code class="descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_view5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8migraphx11tensor_view3endEv">
+<span id="migraphx::tensor_view::end"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a6fda37c8a0eeafc3d42540a6532d17e5"></span>T *<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8migraphx11tensor_view3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_view5beginEv">
+<span id="migraphx::tensor_view::beginC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a02e6990a32f4c0e62ca29113c0e4d21b"></span><em class="property">const</em> T *<code class="descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_view5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8migraphx11tensor_view3endEv">
+<span id="migraphx::tensor_view::endC"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a840348254e9d04afad4d7f33ecec6185"></span><em class="property">const</em> T *<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8migraphx11tensor_view3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv2lsRNSt7ostreamERK11tensor_viewI1TE">
+<span id="lshift-operator__osR.tensor_view:T:CR"></span><span class="target" id="structmigraphx_1_1MIGRAPHX__INLINE__NS_1_1tensor__view_1a8b9a41c86421f3850c825452729aa817"></span>std::ostream &amp;<code class="descname">operator&lt;&lt;</code><span class="sig-paren">(</span>std::ostream &amp;<em>os</em>, <em class="property">const</em> tensor_view&lt;T&gt; &amp;<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2lsRNSt7ostreamERK11tensor_viewI1TE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data types</a><ul>
+<li><a class="reference internal" href="#shape">shape</a></li>
+<li><a class="reference internal" href="#literal">literal</a></li>
+<li><a class="reference internal" href="#argument">argument</a></li>
+<li><a class="reference internal" href="#raw-data">raw_data</a></li>
+<li><a class="reference internal" href="#tensor-view">tensor_view</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../user_guide.html">User Guide</a><ul>
+      <li>Previous: <a href="../overview.html" title="previous chapter">Overview</a></li>
+      <li>Next: <a href="operators.html" title="next chapter">Operators</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/data.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, AMD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/reference/data.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
