@@ -550,16 +550,16 @@ std::ostream& operator<<(std::ostream& os, const program& p)
     return os;
 }
 
-void quantization(program &prog)
+void quantization(program& prog)
 {
     for(auto ins : iterator_for(prog))
     {
         // literal is 32-bit, convert to 16-bit
-        if (ins->name() == "@literal")
+        if(ins->name() == "@literal")
         {
             shape s = ins->get_shape();
             // convert float_type to half_type
-            if (s.type() == shape::float_type)
+            if(s.type() == shape::float_type)
             {
                 std::vector<float> values;
                 auto l_old = ins->get_literal();
@@ -570,15 +570,15 @@ void quantization(program &prog)
         }
         // parameters is 32-bit add an operator to convert the
         // parameter to 16-bit
-        else if (ins->name() == "@param")
+        else if(ins->name() == "@param")
         {
             shape s = ins->get_shape();
-            // for float_type parameter, add an instruction to 
+            // for float_type parameter, add an instruction to
             // convert float_type to half_type
-            if (s.type() == shape::float_type)
+            if(s.type() == shape::float_type)
             {
                 instruction_ref ins_16{};
-                if (ins == std::prev(prog.end()))
+                if(ins == std::prev(prog.end()))
                 {
                     ins_16 = prog.add_instruction(op::fp_conversion{}, ins);
                 }
@@ -592,11 +592,11 @@ void quantization(program &prog)
         }
 
         // add another instruction at last to convert fp16 to fp32
-        if (ins == std::prev(prog.end()))
+        if(ins == std::prev(prog.end()))
         {
             prog.add_instruction(op::fp_conversion{}, ins);
         }
-    }    
+    }
 }
 
 } // namespace MIGRAPHX_INLINE_NS
