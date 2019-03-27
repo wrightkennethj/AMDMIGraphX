@@ -11,7 +11,8 @@ inline namespace MIGRAPHX_INLINE_NS {
 namespace gpu {
 namespace device {
 
-argument fp_conversion(hipStream_t stream, const shape& output_shape, const std::vector<argument>& args);
+argument
+fp_conversion(hipStream_t stream, const shape& output_shape, const std::vector<argument>& args);
 
 } // namespace device
 } // namespace gpu

@@ -8,7 +8,7 @@ namespace migraphx {
 inline namespace MIGRAPHX_INLINE_NS {
 namespace gpu {
 
-struct hip_fp_conversion 
+struct hip_fp_conversion
 {
     op::fp_conversion op;
     std::string name() const { return "gpu::fp_conversion"; }

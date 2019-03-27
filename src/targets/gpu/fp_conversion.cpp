@@ -13,8 +13,8 @@ shape hip_fp_conversion::compute_shape(std::vector<shape> inputs) const
 }
 
 argument hip_fp_conversion::compute(context& ctx,
-                             const shape& output_shape,
-                             const std::vector<argument>& args) const
+                                    const shape& output_shape,
+                                    const std::vector<argument>& args) const
 {
     return device::fp_conversion(ctx.get_stream().get(), output_shape, args);
 }

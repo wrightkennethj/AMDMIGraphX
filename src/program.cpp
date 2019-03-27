@@ -600,10 +600,10 @@ void quantization(program& prog)
     }
 
     // add another instruction at last to convert fp16 to fp32
-    if(reduced_precision) 
+    if(reduced_precision)
     {
-        auto ins = std::prev(prog.end()); 
-        if (ins->get_shape().type() == shape::half_type)
+        auto ins = std::prev(prog.end());
+        if(ins->get_shape().type() == shape::half_type)
         {
             prog.add_instruction(op::fp_conversion{false}, ins);
         }
