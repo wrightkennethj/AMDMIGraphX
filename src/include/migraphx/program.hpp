@@ -23,6 +23,7 @@ MIGRAPHX_DECLARE_ENV_VAR(MIGRAPHX_TRACE_EVAL)
 struct program_impl;
 
 const operation& get_operation(instruction_ref ins);
+void quantization(program& prog);
 
 /**
  * @brief Stores the instruction stream
@@ -116,7 +117,6 @@ struct program
     friend std::ostream& operator<<(std::ostream& os, const program& p);
     friend bool operator==(const program& x, const program& y);
     friend bool operator!=(const program& x, const program& y) { return !(x == y); }
-    friend void quantization(program& prog);
 
     private:
     std::unique_ptr<program_impl> impl;

@@ -777,6 +777,7 @@ struct cpu_fp_conversion
     op::fp_conversion op;
     std::string name() const { return "cpu_fp_conversion"; }
     shape compute_shape(const std::vector<shape>& inputs) const { return op.compute_shape(inputs); }
+
     argument compute(context&, const shape& output_shape, std::vector<argument> args) const
     {
         return op.compute(output_shape, std::move(args));

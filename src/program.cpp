@@ -552,6 +552,7 @@ std::ostream& operator<<(std::ostream& os, const program& p)
 
 void quantization(program& prog)
 {
+    bool reduced_precision = false;
     for(auto ins : iterator_for(prog))
     {
         // literal is 32-bit, convert to 16-bit
@@ -566,6 +567,7 @@ void quantization(program& prog)
                 l_old.visit([&](auto val) { values.assign(val.begin(), val.end()); });
                 auto l_new = prog.add_literal(literal({shape::half_type, s.lens()}, values));
                 prog.replace_instruction(ins, l_new);
+                reduced_precision = true;
             }
         }
         // parameters is 32-bit add an operator to convert the
@@ -588,13 +590,22 @@ void quantization(program& prog)
                 }
 
                 prog.replace_instruction(ins, ins_16);
+                reduced_precision = true;
             }
         }
-
-        // add another instruction at last to convert fp16 to fp32
-        if(ins == std::prev(prog.end()))
+        else
         {
-            prog.add_instruction(op::fp_conversion{}, ins);
+            ins->recompute_shape();
+        }
+    }
+
+    // add another instruction at last to convert fp16 to fp32
+    if(reduced_precision) 
+    {
+        auto ins = std::prev(prog.end()); 
+        if (ins->get_shape().type() == shape::half_type)
+        {
+            prog.add_instruction(op::fp_conversion{false}, ins);
         }
     }
 }
