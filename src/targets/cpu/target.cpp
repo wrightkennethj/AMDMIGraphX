@@ -15,8 +15,8 @@ std::string target::name() const { return "cpu"; }
 
 std::vector<pass> target::get_passes(migraphx::context&) const
 {
-    return {//convert_fp{},
-            //dead_code_elimination{},
+    return {// convert_fp{},
+            // dead_code_elimination{},
             rewrite_rnn{},
             dead_code_elimination{},
             auto_contiguous{},
