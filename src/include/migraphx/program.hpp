@@ -23,7 +23,6 @@ MIGRAPHX_DECLARE_ENV_VAR(MIGRAPHX_TRACE_EVAL)
 struct program_impl;
 
 const operation& get_operation(instruction_ref ins);
-void quantization(program& prog);
 
 /**
  * @brief Stores the instruction stream
