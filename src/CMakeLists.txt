@@ -18,6 +18,7 @@ add_library(migraphx
     instruction.cpp
     program.cpp
     quantization.cpp
+    convert_fp.cpp
     shape.cpp
     schedule.cpp
     simplify_algebra.cpp

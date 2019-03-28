@@ -4,6 +4,7 @@
 #include <migraphx/pass.hpp>
 #include <migraphx/auto_contiguous.hpp>
 #include <migraphx/rewrite_rnn.hpp>
+#include <migraphx/convert_fp.hpp>
 #include <migraphx/dead_code_elimination.hpp>
 
 namespace migraphx {
@@ -14,7 +15,9 @@ std::string target::name() const { return "cpu"; }
 
 std::vector<pass> target::get_passes(migraphx::context&) const
 {
-    return {rewrite_rnn{},
+    return {//convert_fp{},
+            //dead_code_elimination{},
+            rewrite_rnn{},
             dead_code_elimination{},
             auto_contiguous{},
             dead_code_elimination{},
