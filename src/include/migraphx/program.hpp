@@ -60,7 +60,7 @@ struct program
                                         const operation& op,
                                         std::vector<instruction_ref> args);
 
-    instruction_ref replace_instruction(instruction_ref ins, instruction_ref rep);
+    instruction_ref replace_instruction(instruction_ref ins, instruction_ref rep, bool recompute_shape = true);
 
     instruction_ref remove_instruction(instruction_ref ins);
     instruction_ref remove_instructions(instruction_ref first, instruction_ref last);

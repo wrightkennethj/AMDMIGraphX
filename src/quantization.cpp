@@ -16,48 +16,106 @@
 namespace migraphx {
 inline namespace MIGRAPHX_INLINE_NS {
 
+
+instruction_ref replace_instruction(program& prog, instruction_ref ins, std::unordered_map<instruction_ref, instruction_ref> convrted_ins)
+{
+    std::vector<std::string> vec_op_names = 
+        {"dot", "convolution", "add", "sub", "mul", "div", "max", "min"};
+    if (convrted_ins.count(ins) > 0)
+    {
+        return convrted_ins[ins];
+    }
+
+    if (ins->get_shape().type() != shape::float_type)
+    {
+        return ins;
+    }
+
+    if (ins->name() == "@literal" || ins->name() == "@param")
+    {
+        instruction_ref ins_fp16{};
+        if (ins->name() == "@literal")
+        {
+            std::vector<float> values;
+            auto l_fp32 = ins->get_literal();
+            shape s = ins->get_shape();
+            l_fp32.visit([&](auto val) { values.assign(val.begin(), val.end()); });
+            ins_fp16 = prog.add_literal(literal({shape::half_type, s.lens()}, values));
+        }
+        else if (ins->name() == "@param")
+        {
+            if(ins == std::prev(prog.end()))
+            {
+                ins_fp16 = prog.add_instruction(op::fp_conversion{}, ins);
+            }
+            else
+            {
+                ins_fp16 = prog.insert_instruction(std::next(ins), op::fp_conversion{}, ins);
+            }
+        }
+
+        convrted_ins[ins] = ins_fp16;
+
+        auto outputs = ins->outputs();
+        for (auto output : outputs)
+        {
+            if (std::find(vec_op_names.begin(), vec_op_names.end(), output->name()) != vec_op_names.end())
+            {
+                auto inputs = output->inputs();
+                for (auto input : inputs)
+                {
+                    if (input != ins)
+                    {
+                        convrted_ins[input] = replace_instruction(prog, input, convrted_ins);
+                    }
+
+                    if (convrted_ins[input] != input)
+                    {
+                        instruction::replace_argument(output, input, convrted_ins[input], false);
+                    }
+                }
+                output->recompute_shape();
+            }
+        }
+        //prog.replace_instruction(ins, ins_fp16);
+
+        return ins_fp16;
+    }
+    else
+    {
+        auto inputs = ins->inputs();
+        for (auto input : inputs)
+        {
+            convrted_ins[input] = replace_instruction(prog, input, convrted_ins);
+            if (convrted_ins[input] != input)
+            {
+                instruction::replace_argument(ins, input, convrted_ins[input], false);
+            }
+        }
+
+        ins->recompute_shape();
+
+        return ins;
+    }
+}
+
 void quantize(program& prog)
 {
+    std::unordered_map<instruction_ref, instruction_ref> instruction_map;
+
     bool reduced_precision = false;
     for(auto ins : iterator_for(prog))
     {
-        // literal is 32-bit, convert to 16-bit
-        if(ins->name() == "@literal")
+        if (instruction_map.count(ins) > 0)
         {
-            shape s = ins->get_shape();
-            // convert float_type to half_type
-            if(s.type() == shape::float_type)
-            {
-                std::vector<float> values;
-                auto l_fp32 = ins->get_literal();
-                l_fp32.visit([&](auto val) { values.assign(val.begin(), val.end()); });
-                auto l_fp16 = prog.add_literal(literal({shape::half_type, s.lens()}, values));
-                prog.replace_instruction(ins, l_fp16);
-                reduced_precision = true;
-            }
+            continue;
         }
-        // parameters is 32-bit add an operator to convert the
-        // parameter to 16-bit
-        else if(ins->name() == "@param")
-        {
-            shape s = ins->get_shape();
-            // for float_type parameter, add an instruction to
-            // convert float_type to half_type
-            if(s.type() == shape::float_type)
-            {
-                instruction_ref ins_16{};
-                if(ins == std::prev(prog.end()))
-                {
-                    ins_16 = prog.add_instruction(op::fp_conversion{}, ins);
-                }
-                else
-                {
-                    ins_16 = prog.insert_instruction(std::next(ins), op::fp_conversion{}, ins);
-                }
 
-                prog.replace_instruction(ins, ins_16);
-                reduced_precision = true;
-            }
+        // convert float_type to half_type
+        if ((ins->name() == "@literal" || ins->name() == "@param") &&
+            ins->get_shape().type() == shape::float_type)
+        {
+            replace_instruction(prog, ins, instruction_map);
         }
         else
         {

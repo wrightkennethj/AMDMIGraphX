@@ -925,6 +925,7 @@ struct dot
         // implementation. we can remove this requirement later)
         if(inputs.size() == 3)
         {
+            check_shapes{inputs, *this}.has(3).same_type();
             auto a_lens = inputs[0].lens();
             auto b_lens = inputs[1].lens();
             check_dims(a_lens, b_lens);

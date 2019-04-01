@@ -126,11 +126,13 @@ void instruction::backreference(instruction_ref ref)
 
 void instruction::replace_argument(instruction_ref ins,
                                    instruction_ref old,
-                                   instruction_ref new_ins)
+                                   instruction_ref new_ins, 
+                                   bool recompute_shape)
 {
     ins->replace_argument(old, new_ins);
     backreference(ins);
-    ins->recompute_shape();
+    if (recompute_shape)
+        ins->recompute_shape();
 }
 
 void instruction::replace(instruction_ref ins,

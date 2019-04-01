@@ -126,7 +126,7 @@ instruction_ref program::replace_instruction(instruction_ref ins,
     return ins;
 }
 
-instruction_ref program::replace_instruction(instruction_ref ins, instruction_ref rep)
+instruction_ref program::replace_instruction(instruction_ref ins, instruction_ref rep, bool recompute_shape)
 {
     assert(has_instruction(ins));
     assert(has_instruction(rep));
@@ -149,7 +149,7 @@ instruction_ref program::replace_instruction(instruction_ref ins, instruction_re
         // TODO: Check for possible cycles
         if(out != rep)
         {
-            instruction::replace_argument(out, ins, rep);
+            instruction::replace_argument(out, ins, rep, recompute_shape);
         }
         assert(out->valid(begin()));
     }
