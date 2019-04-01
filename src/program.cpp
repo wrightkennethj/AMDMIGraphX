@@ -126,7 +126,8 @@ instruction_ref program::replace_instruction(instruction_ref ins,
     return ins;
 }
 
-instruction_ref program::replace_instruction(instruction_ref ins, instruction_ref rep, bool recompute_shape)
+instruction_ref
+program::replace_instruction(instruction_ref ins, instruction_ref rep, bool recompute_shape)
 {
     assert(has_instruction(ins));
     assert(has_instruction(rep));
