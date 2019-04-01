@@ -29,10 +29,10 @@ void quantize(program& prog)
             if(s.type() == shape::float_type)
             {
                 std::vector<float> values;
-                auto l_old = ins->get_literal();
-                l_old.visit([&](auto val) { values.assign(val.begin(), val.end()); });
-                auto l_new = prog.add_literal(literal({shape::half_type, s.lens()}, values));
-                prog.replace_instruction(ins, l_new);
+                auto l_fp32 = ins->get_literal();
+                l_fp32.visit([&](auto val) { values.assign(val.begin(), val.end()); });
+                auto l_fp16 = prog.add_literal(literal({shape::half_type, s.lens()}, values));
+                prog.replace_instruction(ins, l_fp16);
                 reduced_precision = true;
             }
         }
