@@ -17,8 +17,7 @@
 namespace migraphx {
 inline namespace MIGRAPHX_INLINE_NS {
 
-void quantize(program& p);
-void run_passes(program& p, std::vector<pass> passes);
+void quantize(program& prog);
 
 } // namespace MIGRAPHX_INLINE_NS
 } // namespace migraphx
