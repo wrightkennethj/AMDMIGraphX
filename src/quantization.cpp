@@ -44,7 +44,8 @@ instruction_ref convert_fp32_fp16(program& prog, instruction_ref& ins)
     return ins_fp16;
 }
 
-// void replace_arguments(program& prog, instruction_ref ins, std::unordered_map<instruction_ref, instruction_ref>& convrted_ins)
+// void replace_arguments(program& prog, instruction_ref ins, std::unordered_map<instruction_ref,
+// instruction_ref>& convrted_ins)
 // {
 //    if (ins->get_shape().type() != shape::float_type)
 //    {
@@ -118,7 +119,8 @@ instruction_ref convert_fp32_fp16(program& prog, instruction_ref& ins)
 //        convrted_ins[ins] = convert_fp32_fp16(prog, ins);
 //        auto outputs = ins->outputs();
 //        if (!std::any_of(outputs.begin(), outputs.end(), [&](auto i) {
-//            return std::find(vec_op_names.begin(), vec_op_names.end(), i->name()) != vec_op_names.end();
+//            return std::find(vec_op_names.begin(), vec_op_names.end(), i->name()) !=
+//            vec_op_names.end();
 //        }))
 //        {
 //            prog.replace_instruction(ins, convrted_ins[ins]);
@@ -127,7 +129,8 @@ instruction_ref convert_fp32_fp16(program& prog, instruction_ref& ins)
 //        {
 //            for(auto output : outputs)
 //            {
-//                if (std::find(vec_op_names.begin(), vec_op_names.end(), output->name()) != vec_op_names.end())
+//                if (std::find(vec_op_names.begin(), vec_op_names.end(), output->name()) !=
+//                vec_op_names.end())
 //                {
 //                    replace_arguments(prog, output, convrted_ins);
 //                }
@@ -273,9 +276,10 @@ void quantize(program& prog)
             // prog.replace_instruction(ins, ins_fp16, false);
             // std::cout << "prog0 = \n" << prog << std::endl;
             auto outputs = ins->outputs();
-            for (auto output : outputs)
+            for(auto output : outputs)
             {
-                if (output != ins_fp16) {
+                if(output != ins_fp16)
+                {
                     instruction::replace_argument(output, ins, ins_fp16, false);
                 }
             }
@@ -288,16 +292,17 @@ void quantize(program& prog)
     // add another instruction at last to convert fp16 to fp32
     if(reduced_precision)
     {
-        for (auto ins : iterator_for(prog))
+        for(auto ins : iterator_for(prog))
         {
             // std::cout << "prog2 = \n" << prog << std::endl;
-            if (ins->name() != "@literal" && ins->name() != "@param")
+            if(ins->name() != "@literal" && ins->name() != "@param")
             {
-                //std::cout << "name = " << ins->name() << std::endl;
-                //auto inputs = ins->inputs();
-                //for (auto input : inputs)
+                // std::cout << "name = " << ins->name() << std::endl;
+                // auto inputs = ins->inputs();
+                // for (auto input : inputs)
                 //{
-                //    std::cout << "input's shape = " << input->get_shape() << " " << input->name() << std::endl;
+                //    std::cout << "input's shape = " << input->get_shape() << " " << input->name()
+                //    << std::endl;
                 //}
                 ins->recompute_ins_shape();
             }
@@ -312,7 +317,6 @@ void quantize(program& prog)
 
     // std::cout << "prog = " << prog << std::endl;
 }
-
 
 } // namespace MIGRAPHX_INLINE_NS
 } // namespace migraphx

@@ -32,7 +32,7 @@ void instruction::recompute_shape() { replace(compute_shape(op, arguments)); }
 void instruction::recompute_ins_shape()
 {
     auto r = compute_shape(op, arguments);
-    if (r != result)
+    if(r != result)
         result = r;
 }
 
