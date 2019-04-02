@@ -53,7 +53,7 @@ void quantize(program& prog)
         if(ins->name().front() == '@' && ins->get_shape().type() == shape::float_type)
         {
             auto ins_fp16 = convert_fp32_fp16(prog, ins);
-            auto outputs = ins->outputs();
+            auto outputs  = ins->outputs();
             for(auto output : outputs)
             {
                 if(output != ins_fp16)
