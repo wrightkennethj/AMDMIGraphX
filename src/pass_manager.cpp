@@ -16,8 +16,7 @@
 namespace migraphx {
 inline namespace MIGRAPHX_INLINE_NS {
 
-void run_passes(program& p, std::vector<pass> passes)
-{}
+void run_passes(program& p, std::vector<pass> passes) {}
 
 } // namespace MIGRAPHX_INLINE_NS
 } // namespace migraphx
