@@ -24,6 +24,9 @@ struct convert_fp
 {
     std::string name() const { return "convert_fp"; }
     void apply(program& prog) const;
+
+    private:
+    instruction_ref convert_fp32_fp16(program& prog, instruction_ref& ins) const;
 };
 
 } // namespace MIGRAPHX_INLINE_NS
