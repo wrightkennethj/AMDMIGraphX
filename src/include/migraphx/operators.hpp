@@ -1554,7 +1554,7 @@ struct fp_conversion
         }
     }
 
-    argument compute(const shape& output_shape, const std::vector<argument>& args) const
+    argument compute(const shape& output_shape, std::vector<argument> args) const
     {
         argument result{output_shape};
         result.visit([&](auto output) {

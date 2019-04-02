@@ -27,6 +27,7 @@ struct instruction
     void replace(const shape& r);
 
     void recompute_shape();
+    void recompute_ins_shape();
 
     void clear_arguments();
 
