@@ -1,5 +1,5 @@
-#ifndef MIGRAPHX_GUARD_MIGRAPHLIB_QUANTIZATION_HPP
-#define MIGRAPHX_GUARD_MIGRAPHLIB_QUANTIZATION_HPP
+#ifndef MIGRAPHX_GUARD_MIGRAPHLIB_PASS_MANAGER_HPP
+#define MIGRAPHX_GUARD_MIGRAPHLIB_PASS_MANAGER_HPP
 
 #include <list>
 #include <unordered_map>
@@ -17,7 +17,7 @@
 namespace migraphx {
 inline namespace MIGRAPHX_INLINE_NS {
 
-void quantize(program& prog);
+void run_passes(program& p, std::vector<pass> passes);
 
 } // namespace MIGRAPHX_INLINE_NS
 } // namespace migraphx
