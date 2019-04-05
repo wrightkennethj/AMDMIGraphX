@@ -309,10 +309,10 @@ argument miopen_gemm::compute(context& ctx,
         output_shape.visit_type([&](auto as) {
             auto to_pointer = [&](auto&& arg) { return to_rocblas_type(as.from(arg.data())); };
             hipMemcpyAsync(to_pointer(args[3]),
-                      to_pointer(args[2]),
-                      output_shape.bytes(),
-                      hipMemcpyDeviceToDevice,
-                      ctx.get_stream().get());
+                           to_pointer(args[2]),
+                           output_shape.bytes(),
+                           hipMemcpyDeviceToDevice,
+                           ctx.get_stream().get());
         });
 
         // fill_result(output_shape, args[3], args[2]);
