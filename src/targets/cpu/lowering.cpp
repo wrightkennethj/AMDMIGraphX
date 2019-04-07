@@ -403,33 +403,8 @@ struct cpu_gemm
             return result;
         }
 
-        // 2 input cases
-        // first argument is 1-dim, pre-pend 1 at beginning
-        auto a_lens     = args[0].get_shape().lens();
-        auto b_lens     = args[1].get_shape().lens();
-        auto out_lens   = output_shape.lens();
-        shape::type_t t = output_shape.type();
-        if(a_lens.size() == 1)
-        {
-            a_lens.insert(a_lens.begin(), 1);
-            out_lens.push_back(1);
-            if(out_lens.size() > 1)
-            {
-                std::swap(*out_lens.rbegin(), *(out_lens.rbegin() + 1));
-            }
-        }
-
-        if(b_lens.size() == 1)
-        {
-            b_lens.push_back(1);
-            out_lens.push_back(1);
-        }
-
-        migemm({{t, out_lens}, result.data()},
-               {{t, a_lens}, args[0].data()},
-               {{t, b_lens}, args[1].data()},
-               op.alpha,
-               0.0f);
+        // 2 input arguments
+        migemm(result, args[0], args[1], op.alpha, 0.0f);
 
         return result;
     }

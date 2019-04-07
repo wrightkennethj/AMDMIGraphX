@@ -893,10 +893,11 @@ struct gemm_2args_mm_1 : verify_program<gemm_2args_mm_1>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {2, 2, 3}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {1, 3, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto l2  = p.add_parameter("2", m2_shape);
+        auto bl2 = p.add_instruction(migraphx::op::multibroadcast{{2, 3, 4}}, l2);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, l1, bl2);
 
         return p;
     }
@@ -909,10 +910,11 @@ struct gemm_2args_mm_2 : verify_program<gemm_2args_mm_2>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {2, 2, 3}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {3, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto l2  = p.add_parameter("2", m2_shape);
+        auto bl2 = p.add_instruction(migraphx::op::multibroadcast{{2, 3, 4}}, l2);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, l1, bl2);
 
         return p;
     }
@@ -925,10 +927,11 @@ struct gemm_2args_mm_3 : verify_program<gemm_2args_mm_3>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {1, 2, 3}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {3, 3, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto bl1 = p.add_instruction(migraphx::op::multibroadcast{{3, 2, 3}}, l1);
+        auto l2  = p.add_parameter("2", m2_shape);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, bl1, l2);
 
         return p;
     }
@@ -941,10 +944,11 @@ struct gemm_2args_mm_4 : verify_program<gemm_2args_mm_4>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {2, 3}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {3, 3, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto bl1 = p.add_instruction(migraphx::op::multibroadcast{{3, 2, 3}}, l1);
+        auto l2  = p.add_parameter("2", m2_shape);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, bl1, l2);
 
         return p;
     }
@@ -957,10 +961,11 @@ struct gemm_2args_mm_5 : verify_program<gemm_2args_mm_5>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {2, 1, 2, 3}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {2, 3, 3, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto bl1 = p.add_instruction(migraphx::op::multibroadcast{{2, 3, 2, 3}}, l1);
+        auto l2  = p.add_parameter("2", m2_shape);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, bl1, l2);
 
         return p;
     }
@@ -973,10 +978,12 @@ struct gemm_2args_mm_6 : verify_program<gemm_2args_mm_6>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {2, 1, 2, 3}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {1, 3, 3, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto bl1 = p.add_instruction(migraphx::op::multibroadcast{{2, 3, 2, 3}}, l1);
+        auto l2  = p.add_parameter("2", m2_shape);
+        auto bl2 = p.add_instruction(migraphx::op::multibroadcast{{2, 3, 3, 4}}, l2);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, bl1, bl2);
 
         return p;
     }
@@ -989,10 +996,11 @@ struct gemm_2args_mm_7 : verify_program<gemm_2args_mm_7>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {2, 3}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {2, 3, 3, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto bl1 = p.add_instruction(migraphx::op::multibroadcast{{2, 3, 2, 3}}, l1);
+        auto l2  = p.add_parameter("2", m2_shape);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, bl1, l2);
 
         return p;
     }
@@ -1022,11 +1030,14 @@ struct gemm_2args_vv : verify_program<gemm_2args_vv>
         migraphx::shape m1_shape{migraphx::shape::float_type, {8}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {8}};
         auto l1     = p.add_parameter("1", m1_shape);
+        auto ul1    = p.add_instruction(migraphx::op::unsqueeze{{0}}, l1);
         auto l2     = p.add_parameter("2", m2_shape);
+        auto ul2    = p.add_instruction(migraphx::op::unsqueeze{{1}}, l2);
         float alpha = 0.23f;
 
-        p.add_instruction(migraphx::op::dot{alpha}, l1, l2);
-
+        auto res  = p.add_instruction(migraphx::op::dot{alpha}, ul1, ul2);
+        auto sres = p.add_instruction(migraphx::op::squeeze{{0}}, res);
+        p.add_instruction(migraphx::op::squeeze{{0}}, sres);
         return p;
     }
 };
@@ -1038,10 +1049,11 @@ struct gemm_2args_mv : verify_program<gemm_2args_mv>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {3, 5}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {5}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto l2  = p.add_parameter("2", m2_shape);
+        auto ul2 = p.add_instruction(migraphx::op::unsqueeze{{1}}, l2);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, l1, ul2);
 
         return p;
     }
@@ -1054,10 +1066,12 @@ struct gemm_2args_bmv : verify_program<gemm_2args_bmv>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {2, 3, 3, 5}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {5}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1   = p.add_parameter("1", m1_shape);
+        auto l2   = p.add_parameter("2", m2_shape);
+        auto ul2  = p.add_instruction(migraphx::op::unsqueeze{{1}}, l2);
+        auto bul2 = p.add_instruction(migraphx::op::multibroadcast{{2, 3, 5, 1}}, ul2);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        p.add_instruction(migraphx::op::dot{}, l1, bul2);
 
         return p;
     }
@@ -1070,10 +1084,12 @@ struct gemm_2args_vm : verify_program<gemm_2args_vm>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {5}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {5, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
-        auto l2 = p.add_parameter("2", m2_shape);
+        auto l1  = p.add_parameter("1", m1_shape);
+        auto ul1 = p.add_instruction(migraphx::op::unsqueeze{{0}}, l1);
+        auto l2  = p.add_parameter("2", m2_shape);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        auto res = p.add_instruction(migraphx::op::dot{}, ul1, l2);
+        p.add_instruction(migraphx::op::squeeze{{0}}, res);
 
         return p;
     }
@@ -1086,10 +1102,14 @@ struct gemm_2args_vbm : verify_program<gemm_2args_vbm>
         migraphx::program p;
         migraphx::shape m1_shape{migraphx::shape::float_type, {5}};
         migraphx::shape m2_shape{migraphx::shape::float_type, {2, 2, 5, 4}};
-        auto l1 = p.add_parameter("1", m1_shape);
+        auto l1   = p.add_parameter("1", m1_shape);
+        auto ul1  = p.add_instruction(migraphx::op::unsqueeze{{0}}, l1);
+        auto bul1 = p.add_instruction(migraphx::op::multibroadcast{{2, 2, 1, 5}}, ul1);
+
         auto l2 = p.add_parameter("2", m2_shape);
 
-        p.add_instruction(migraphx::op::dot{}, l1, l2);
+        auto res = p.add_instruction(migraphx::op::dot{}, bul1, l2);
+        p.add_instruction(migraphx::op::squeeze{{2}}, res);
 
         return p;
     }
