@@ -514,7 +514,7 @@ struct onnx_parser
                 return prog.add_instruction(op::dot{alpha, beta}, l1, l2, l3);
             }
         }
-        return prog.add_instruction(op::dot{alpha}, l1, l2);
+        return prog.add_instruction(op::dot{alpha, beta}, l1, l2);
     }
 
     instruction_ref
