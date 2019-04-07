@@ -20,7 +20,6 @@ add_library(migraphx
     program.cpp
     quantization.cpp
     pass_manager.cpp
-    convert_fp.cpp
     shape.cpp
     schedule.cpp
     simplify_algebra.cpp
