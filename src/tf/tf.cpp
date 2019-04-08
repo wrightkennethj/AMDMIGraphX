@@ -392,18 +392,18 @@ struct tf_parser
         int64_t axis = 0;
         if(contains(attributes, "axis"))
             axis = attributes.at("axis").i();
-        
-        std::transform(
-            args.begin(),
-            args.end(),
-            std::back_inserter(unsqueezed_args),
-            [&](instruction_ref arg) {
-                int64_t new_axis = axis;
-                if (arg->get_shape().lens().size() >= 4)
-                {
-                    new_axis = parse_axis(axis);
-                }
-                return prog.add_instruction(op::unsqueeze{{new_axis}}, arg); });
+
+        std::transform(args.begin(),
+                       args.end(),
+                       std::back_inserter(unsqueezed_args),
+                       [&](instruction_ref arg) {
+                           int64_t new_axis = axis;
+                           if(arg->get_shape().lens().size() >= 4)
+                           {
+                               new_axis = parse_axis(axis);
+                           }
+                           return prog.add_instruction(op::unsqueeze{{new_axis}}, arg);
+                       });
         return prog.add_instruction(op::concat{static_cast<size_t>(axis)}, unsqueezed_args);
     }
 
@@ -558,7 +558,7 @@ struct tf_parser
             if((shrink_axis_mask >> i) & 1)
                 squeeze_axes.push_back(i);
         }
-        if (num_axes >= 4)
+        if(num_axes >= 4)
         {
             squeeze_axes = parse_axes(squeeze_axes);
         }
