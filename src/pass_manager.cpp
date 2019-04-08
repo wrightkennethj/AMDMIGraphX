@@ -16,14 +16,14 @@
 namespace migraphx {
 inline namespace MIGRAPHX_INLINE_NS {
 
-void run_passes(program& prog, std::vector<pass> passes, tracer trace)
+void run_passes(program& prog, const std::vector<pass>& passes, tracer trace)
 {
     if(enabled(MIGRAPHX_TRACE_COMPILE{}))
         trace = tracer{std::cout};
 
     trace(prog);
     trace();
-    for(auto p : passes)
+    for(auto& p : passes)
     {
         trace("Pass: ", p.name());
         p.apply(prog);
