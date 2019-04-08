@@ -1038,6 +1038,7 @@ struct gemm_2args_vv : verify_program<gemm_2args_vv>
         auto res  = p.add_instruction(migraphx::op::dot{alpha}, ul1, ul2);
         auto sres = p.add_instruction(migraphx::op::squeeze{{0}}, res);
         p.add_instruction(migraphx::op::squeeze{{0}}, sres);
+
         return p;
     }
 };
