@@ -35,7 +35,6 @@ struct program
     ~program() noexcept;
 
     using parameter_map = std::unordered_map<std::string, argument>;
-    
 
     template <class... Ts>
     instruction_ref add_instruction(operation op, Ts... args)
@@ -122,7 +121,6 @@ struct program
     friend std::ostream& operator<<(std::ostream& os, const program& p);
     friend bool operator==(const program& x, const program& y);
     friend bool operator!=(const program& x, const program& y) { return !(x == y); }
-
 
     private:
     std::unique_ptr<program_impl> impl;

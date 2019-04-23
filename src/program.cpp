@@ -27,9 +27,9 @@ struct program_impl
 const operation& get_operation(instruction_ref ins) { return ins->get_operator(); }
 
 void program::add_meta_name(instruction_ref ins, std::string name)
-    {
-        impl->meta_names.emplace(ins, name);
-    }
+{
+    impl->meta_names.emplace(ins, name);
+}
 
 std::string program::get_meta_name(instruction_ref ins) const
 {
@@ -540,8 +540,8 @@ void program::print_graph(std::ostream& os) const
     print_program(*this, [&](auto ins, const auto& names) {
         os << "\t" << enclose_name(names.at(ins));
         std::string node_name = get_meta_name(ins);
-        //if (node_name == "")
-            node_name = ins->name();
+        // if (node_name == "")
+        node_name = ins->name();
         os << "[label=" << enclose_name(node_name) << "];";
         os << std::endl;
         if(!ins->inputs().empty())
