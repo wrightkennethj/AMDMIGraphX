@@ -56,6 +56,14 @@ struct check_shapes
         return *this;
     }
 
+    const check_shapes& has_minimum(std::size_t n) const
+    {
+        if(size() < n)
+            MIGRAPHX_THROW(prefix() + "Wrong number of arguments: expected " + std::to_string(n) +
+                           " but given at least " + std::to_string(size()));
+        return *this;
+    }
+
     const check_shapes& only_dims(std::size_t n) const
     {
         assert(begin != nullptr);

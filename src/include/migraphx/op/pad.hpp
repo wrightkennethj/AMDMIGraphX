@@ -37,7 +37,7 @@ struct pad
     std::string name() const { return "pad"; }
     shape compute_shape(std::vector<shape> inputs) const
     {
-        check_shapes{inputs, *this}.has(1);
+        check_shapes{inputs, *this}.has_minimum(1);
         auto&& idims = inputs.front().lens();
         std::vector<std::size_t> rdims(idims.begin(), idims.end());
         std::size_t num_dims = rdims.size();

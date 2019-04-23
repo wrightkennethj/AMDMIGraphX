@@ -39,7 +39,7 @@ struct pooling
 
     shape compute_shape(std::vector<shape> inputs) const
     {
-        check_shapes{inputs, *this}.has(1).only_dims(4);
+        check_shapes{inputs, *this}.has_minimum(1).only_dims(4);
 
         const shape& input = inputs.at(0);
         auto t             = input.type();

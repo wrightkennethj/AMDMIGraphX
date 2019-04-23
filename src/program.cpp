@@ -20,10 +20,24 @@ struct program_impl
 {
     // A list is used to keep references to an instruction stable
     std::list<instruction> instructions;
+    std::unordered_map<instruction_ref, std::string> meta_names;
     context ctx;
 };
 
 const operation& get_operation(instruction_ref ins) { return ins->get_operator(); }
+
+void program::add_meta_name(instruction_ref ins, std::string name)
+    {
+        impl->meta_names.emplace(ins, name);
+    }
+
+std::string program::get_meta_name(instruction_ref ins) const
+{
+    // debug_print(ins);
+    if(impl->meta_names.find(ins) == impl->meta_names.end())
+        return "";
+    return impl->meta_names.at(ins);
+}
 
 static void print_instruction(std::ostream& os,
                               instruction_ref ins,
@@ -524,8 +538,11 @@ void program::print_graph(std::ostream& os) const
     os << "digraph {" << std::endl;
     os << "\trankdir=LR;" << std::endl;
     print_program(*this, [&](auto ins, const auto& names) {
-        os << "\t" << enclose_name(names.at(ins))
-           << "[label=" << enclose_name(to_string(ins->get_operator())) << "];";
+        os << "\t" << enclose_name(names.at(ins));
+        std::string node_name = get_meta_name(ins);
+        //if (node_name == "")
+            node_name = ins->name();
+        os << "[label=" << enclose_name(node_name) << "];";
         os << std::endl;
         if(!ins->inputs().empty())
         {

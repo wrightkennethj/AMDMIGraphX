@@ -378,7 +378,7 @@ struct tf_parser
             std::vector<size_t> input_dims{args[0]->get_shape().lens()};
             op.lengths[0] = input_dims[2];
             op.lengths[1] = input_dims[3];
-            return prog.add_instruction(op, args.front());
+            return prog.add_instruction(op, std::move(args));
         }
         MIGRAPHX_THROW("MIGraphX does not support mean outside of GlobalAvgPool transformation");
     }
@@ -434,7 +434,7 @@ struct tf_parser
             pads[i + ndims] = pad_per_dim[i].second;
         }
         op.pads = pads;
-        return prog.add_instruction(op, args.front());
+        return prog.add_instruction(op, std::move(args));
     }
 
     instruction_ref parse_pooling(const std::string& name,
@@ -490,7 +490,7 @@ struct tf_parser
             MIGRAPHX_THROW("reshape needs 2 arguments (input, new_shape)");
         auto s = args[1]->eval();
         s.visit([&](auto v) { copy(v, std::back_inserter(op.dims)); });
-        return prog.add_instruction(op, args[0]);
+        return prog.add_instruction(op, std::move(args));
     }
 
     void parse_from(std::istream& is)
@@ -592,6 +592,7 @@ struct tf_parser
             }
             shape s            = shape{shape_type, dims};
             instructions[name] = prog.add_parameter(name, s);
+            prog.add_meta_name(instructions[name], name);
         }
         for(auto&& p : nodes)
         {
@@ -628,6 +629,7 @@ struct tf_parser
             {
                 instructions[name] = ops[node.op()](get_attributes(node), args);
             }
+            prog.add_meta_name(instructions[name], name);
         }
     }
 
