@@ -79,9 +79,11 @@ struct cpu_batch_norm_inference
                             {
                                 std::cout << "variance: " << variance[c] << std::endl;
                                 std::cout << "epsilon: " << epsilon << std::endl;
-                                std::cout << "result: " << gamma[c] * (buffer(n, c, h, w) - mean[c]) /
+                                std::cout << "result: "
+                                          << gamma[c] * (buffer(n, c, h, w) - mean[c]) /
                                                      std::sqrt(variance[c] + epsilon) +
-                                                 bias[c] << std::endl;
+                                                 bias[c]
+                                          << std::endl;
                             }
                             assert((variance[c] + epsilon) > 0);
                             result(n, c, h, w) = gamma[c] * (buffer(n, c, h, w) - mean[c]) /
