@@ -73,8 +73,16 @@ struct cpu_batch_norm_inference
             visit_all(output, input, mini_batch_mean, mini_batch_variance, arg_gamma, arg_bias)(
                 [&](auto result, auto buffer, auto mean, auto variance, auto gamma, auto bias) {
 
-                    par_dfor(num_batch, num_channels, image_height, image_width)(
+                    dfor(num_batch, num_channels, image_height, image_width)(
                         [&](std::size_t n, std::size_t c, std::size_t h, std::size_t w) {
+                            if((variance[c] + epsilon) <= 0)
+                            {
+                                std::cout << "variance: " << variance[c] << std::endl;
+                                std::cout << "epsilon: " << epsilon << std::endl;
+                                std::cout << "result: " << gamma[c] * (buffer(n, c, h, w) - mean[c]) /
+                                                     std::sqrt(variance[c] + epsilon) +
+                                                 bias[c] << std::endl;
+                            }
                             assert((variance[c] + epsilon) > 0);
                             result(n, c, h, w) = gamma[c] * (buffer(n, c, h, w) - mean[c]) /
                                                      std::sqrt(variance[c] + epsilon) +
